@@ -289,65 +289,29 @@
             document.head.appendChild(style);
         });
 
-// 1. Toggle Chat Window
-function toggleChat() {
-    const chatWindow = document.getElementById('chat-window');
-    if (chatWindow.style.display === 'none' || chatWindow.style.display === '') {
-        chatWindow.style.display = 'flex';
-    } else {
-        chatWindow.style.display = 'none';
-    }
-}
+// Toggle Mobile Nav Menu
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileNav = document.getElementById('mobileNav');
 
-// 2. Handle Sending Messages
-async function sendToGemini() {
-    const input = document.getElementById('user-input');
-    const content = document.getElementById('chat-content');
-    const userMessage = input.value.trim();
-
-    if (!userMessage) return;
-
-    // Display User Message
-    content.innerHTML += `<div class="user-msg">${userMessage}</div>`;
-    input.value = ''; // Clear input
-
-    // Show Typing Indicator
-    const typingDiv = document.createElement('div');
-    typingDiv.className = 'typing';
-    typingDiv.id = 'typing-indicator';
-    typingDiv.innerHTML = '<span></span><span></span><span></span>';
-    content.appendChild(typingDiv);
-    content.scrollTop = content.scrollHeight;
-
-    try {
-        // Call your Vercel Serverless Function
-        const response = await fetch('/api/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: userMessage })
-        });
-
-        const data = await response.json();
-
-        // Remove Typing Indicator
-        document.getElementById('typing-indicator').remove();
-
-        // Display AI Response
-        content.innerHTML += `<div class="ai-msg">${data.reply}</div>`;
-    } catch (error) {
-        document.getElementById('typing-indicator').remove();
-        content.innerHTML += `<div class="ai-msg" style="color: #ef4444;">Sorry, I'm having trouble connecting right now.</div>`;
-    }
-
-    content.scrollTop = content.scrollHeight;
-}
-
-// Allow "Enter" key to send message
-document.getElementById('user-input')?.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        sendToGemini();
-    }
+mobileMenuBtn.addEventListener('click', () => {
+    mobileNav.classList.toggle('hidden');
+    mobileNav.classList.toggle('flex');
 });
 
+// Auto-close menu on link click
+document.querySelectorAll('#mobileNav a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileNav.classList.add('hidden');
+        mobileNav.classList.remove('flex');
+    });
+});
+
+// Welcome Bubble Timing
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        const bubble = document.getElementById('welcome-bubble');
+        if (bubble) bubble.classList.add('show');
+    }, 4000);
+});
 
 
