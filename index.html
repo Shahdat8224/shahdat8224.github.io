@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <script src="script.js" defer></script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shahadat Islam Alif | Content Researcher & Language Influencer</title>
@@ -11,21 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
-
-
-
-        
 </head>
 <body class="bg-[#0f172a] text-slate-300">
 
-    <!-- Scroll Progress Indicator -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- Loading Bar (hidden by default) -->
     <div class="loading-bar" id="loadingBar"></div>
 
-    <!-- Navigation -->
     <nav class="sticky top-0 z-50 glass-card py-4 slide-in-up">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <a href="#" class="text-xl font-bold text-white hover:text-sky-400 transition-all duration-300 transform hover:scale-105">
@@ -65,53 +55,34 @@
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-400 group-hover:w-full transition-all duration-300"></span>
                 </a>
             </div>
-            <!-- Updated Connect button with Facebook link - Smaller size -->
-            <a href="https://www.facebook.com/shahadat8224" target="_blank" class="bg-sky-600 hover:bg-sky-700 text-white px-3 py-2 rounded-lg transition-all duration-300 font-medium btn-hover transform hover:scale-105 hover:shadow-lg hover:shadow-sky-500/30 btn-sm md:px-4 md:py-2 btn-sm-mobile btn-sm-tablet">
-                <i class="fab fa-facebook mr-1 md:mr-2"></i><span class="hidden sm:inline">Connect</span>
-            </a>
+            
+            <button onclick="toggleChat()" class="bg-gradient-to-r from-sky-600 to-purple-600 hover:from-sky-700 hover:to-purple-700 text-white px-3 py-2 rounded-lg transition-all duration-300 font-medium btn-hover transform hover:scale-105 hover:shadow-lg hover:shadow-sky-500/30 flex items-center">
+                <i class="fas fa-robot mr-2"></i><span class="hidden sm:inline">AI Chat ✨</span>
+            </button>
+
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-ellipsis-v"></i>
             </button>
         </div>
         
-        <!-- Mobile Navigation Menu -->
         <div class="mobile-nav" id="mobileNav">
             <div class="flex flex-col p-4 space-y-2">
-                <a href="#home" class="hover:text-sky-400 transition-all duration-300 py-3 px-4 rounded-xl hover:bg-sky-500/10 transform hover:translate-x-2 slide-in-left" style="animation-delay: 0.1s">
-                    <i class="fas fa-home mr-3"></i>Home
-                </a>
-                <a href="#about" class="hover:text-sky-400 transition-all duration-300 py-3 px-4 rounded-xl hover:bg-sky-500/10 transform hover:translate-x-2 slide-in-left" style="animation-delay: 0.2s">
-                    <i class="fas fa-user-tie mr-3"></i>About
-                </a>
-                <a href="#experience" class="hover:text-sky-400 transition-all duration-300 py-3 px-4 rounded-xl hover:bg-sky-500/10 transform hover:translate-x-2 slide-in-left" style="animation-delay: 0.3s">
-                    <i class="fas fa-briefcase mr-3"></i>Experience
-                </a>
-                <a href="#skills" class="hover:text-sky-400 transition-all duration-300 py-3 px-4 rounded-xl hover:bg-sky-500/10 transform hover:translate-x-2 slide-in-left" style="animation-delay: 0.4s">
-                    <i class="fas fa-tools mr-3"></i>Skills
-                </a>
-                <a href="#education" class="hover:text-sky-400 transition-all duration-300 py-3 px-4 rounded-xl hover:bg-sky-500/10 transform hover:translate-x-2 slide-in-left" style="animation-delay: 0.5s">
-                    <i class="fas fa-graduation-cap mr-3"></i>Education
-                </a>
-                <a href="#personal" class="hover:text-sky-400 transition-all duration-300 py-3 px-4 rounded-xl hover:bg-sky-500/10 transform hover:translate-x-2 slide-in-left" style="animation-delay: 0.6s">
-                    <i class="fas fa-user-circle mr-3"></i>Personal Details
-                </a>
-                <a href="#references" class="hover:text-sky-400 transition-all duration-300 py-3 px-4 rounded-xl hover:bg-sky-500/10 transform hover:translate-x-2 slide-in-left" style="animation-delay: 0.7s">
-                    <i class="fas fa-users mr-3"></i>References
-                </a>
-                <a href="#contact" class="hover:text-sky-400 transition-all duration-300 py-3 px-4 rounded-xl hover:bg-sky-500/10 transform hover:translate-x-2 slide-in-left" style="animation-delay: 0.8s">
-                    <i class="fas fa-envelope mr-3"></i>Contact
-                </a>
-                <!-- Add Facebook link to mobile menu too -->
-                <a href="https://www.facebook.com/shahadat8224" target="_blank" class="bg-sky-600 hover:bg-sky-700 text-white px-4 py-3 rounded-xl transition-all duration-300 font-medium text-center mt-4 btn-hover slide-in-left" style="animation-delay: 0.9s">
-                    <i class="fab fa-facebook mr-2"></i>Connect on Facebook
-                </a>
+                <a href="#home" class="hover:text-sky-400 py-3 px-4 rounded-xl hover:bg-sky-500/10"><i class="fas fa-home mr-3"></i>Home</a>
+                <a href="#about" class="hover:text-sky-400 py-3 px-4 rounded-xl hover:bg-sky-500/10"><i class="fas fa-user-tie mr-3"></i>About</a>
+                <a href="#experience" class="hover:text-sky-400 py-3 px-4 rounded-xl hover:bg-sky-500/10"><i class="fas fa-briefcase mr-3"></i>Experience</a>
+                <a href="#skills" class="hover:text-sky-400 py-3 px-4 rounded-xl hover:bg-sky-500/10"><i class="fas fa-tools mr-3"></i>Skills</a>
+                <a href="#education" class="hover:text-sky-400 py-3 px-4 rounded-xl hover:bg-sky-500/10"><i class="fas fa-graduation-cap mr-3"></i>Education</a>
+                <a href="#personal" class="hover:text-sky-400 py-3 px-4 rounded-xl hover:bg-sky-500/10"><i class="fas fa-user-circle mr-3"></i>Personal</a>
+                <a href="#references" class="hover:text-sky-400 py-3 px-4 rounded-xl hover:bg-sky-500/10"><i class="fas fa-users mr-3"></i>References</a>
+                <a href="#contact" class="hover:text-sky-400 py-3 px-4 rounded-xl hover:bg-sky-500/10"><i class="fas fa-envelope mr-3"></i>Contact</a>
+                <button onclick="toggleChat()" class="bg-gradient-to-r from-sky-600 to-purple-600 text-white px-4 py-3 rounded-xl mt-4">
+                    <i class="fas fa-robot mr-2"></i>AI Chat
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="min-h-screen gradient-bg flex flex-col justify-center items-center text-center px-6 pt-20 parallax-section">
-        <!-- Profile Photo (Non-clickable) with floating animation -->
         <div class="mb-8 p-2 rounded-full bg-gradient-to-r from-sky-500 to-blue-500 animate-pulse profile-photo-container floating">
             <img src="https://i.ibb.co.com/H0J2rv0/MY-photo.jpg" alt="Shahadat Islam Alif" class="w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full border-4 border-[#0f172a] object-cover shadow-2xl">
         </div>
@@ -120,38 +91,35 @@
             Shahadat Islam <span class="text-gradient-animate">Alif</span>
         </h1>
         
-        <!-- Badges (Non-clickable) with staggered animation -->
         <div class="inline-flex flex-wrap justify-center gap-3 mb-6">
-            <span class="badge-blue text-white px-4 py-2 rounded-full text-sm font-medium cursor-default hover:scale-105 transition-transform duration-300 stagger-item" style="animation-delay: 0.2s">
+            <span class="badge-blue text-white px-4 py-2 rounded-full text-sm font-medium">
                 <i class="fas fa-search mr-2"></i>Content Researcher
             </span>
-            <span class="badge-green text-white px-4 py-2 rounded-full text-sm font-medium cursor-default hover:scale-105 transition-transform duration-300 stagger-item" style="animation-delay: 0.4s">
+            <span class="badge-green text-white px-4 py-2 rounded-full text-sm font-medium">
                 <i class="fas fa-language mr-2"></i>Language Influencer
             </span>
-            <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium cursor-default hover:scale-105 transition-transform duration-300 stagger-item" style="animation-delay: 0.6s">
+            <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium">
                 <i class="fas fa-chart-line mr-2"></i>Sales & Marketing Expert
             </span>
         </div>
         
-        <p class="text-xl md:text-2xl text-slate-300 font-light mb-6 max-w-3xl leading-relaxed slide-in-up" style="animation-delay: 0.3s">
+        <p class="text-xl md:text-2xl text-slate-300 font-light mb-6 max-w-3xl leading-relaxed slide-in-up">
             Bridging digital marketing with multilingual communication to create impactful campaigns and build meaningful connections across cultures.
         </p>
         
-        <div class="flex flex-col sm:flex-row gap-4 slide-in-up" style="animation-delay: 0.5s">
-            <!-- Updated Get In Touch button with email functionality -->
-            <button id="emailBtn" class="bg-gradient-to-r from-sky-600 to-blue-500 hover:from-sky-700 hover:to-blue-600 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 shadow-xl hover:shadow-sky-500/30 flex items-center justify-center btn-hover transform hover:scale-105">
+        <div class="flex flex-col sm:flex-row gap-4 slide-in-up">
+            <button id="emailBtn" class="bg-gradient-to-r from-sky-600 to-blue-500 hover:from-sky-700 hover:to-blue-600 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 shadow-xl flex items-center justify-center btn-hover transform hover:scale-105">
                 <i class="fas fa-envelope mr-2"></i> Get In Touch
             </button>
             <a href="tel:+8801320828224" class="glass-card hover:bg-slate-800/80 border border-sky-500/30 px-8 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center btn-hover transform hover:scale-105">
                 <i class="fas fa-phone mr-2"></i> Call: 01320828224
             </a>
-            <a href="#experience" class="border border-sky-500/50 text-sky-400 hover:bg-sky-500/10 px-8 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center btn-hover transform hover:scale-105">
+            <a href="#experience" class="border border-sky-500/50 text-sky-400 hover:bg-sky-500/10 px-8 py-3 rounded-lg font-semibold flex items-center justify-center btn-hover transform hover:scale-105">
                 <i class="fas fa-briefcase mr-2"></i> View Experience
             </a>
         </div>
         
-        <!-- Scroll indicator -->
-        <div class="mt-12 slide-in-up" style="animation-delay: 0.7s">
+        <div class="mt-12 slide-in-up">
             <a href="#about" class="text-slate-400 hover:text-sky-400 transition-colors duration-300 flex flex-col items-center">
                 <span class="mb-2">Scroll to explore</span>
                 <i class="fas fa-chevron-down animate-bounce"></i>
@@ -159,71 +127,31 @@
         </div>
     </section>
 
-    <!-- Section Divider -->
     <div class="section-divider"></div>
 
-    <!-- About & Career Objective -->
     <section id="about" class="py-16 md:py-20 px-4 section">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 md:mb-12 flex items-center slide-in-left">
                 <span class="text-gradient-animate mr-3"><i class="fas fa-user-tie"></i></span> Professional Profile
             </h2>
-            <div class="grid md:grid-cols-3 gap-6 md:gap-8 touch-spacing">
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
                 <div class="glass-card p-6 md:p-8 rounded-2xl md:col-span-2 card-hover slide-in-left">
                     <h3 class="text-2xl font-bold text-white mb-6">Career Objective</h3>
                     <p class="text-lg mb-6 leading-relaxed">
-                        As a <span class="text-gradient-animate font-semibold">Content Researcher</span> and <span class="text-green-400 font-semibold">Language Influencer</span>, I thrive in dynamic environments where creativity meets strategy. My goal is to help businesses grow through innovative digital campaigns while leveraging my multilingual communication skills to bridge cultural gaps.
+                        As a <span class="text-gradient-animate font-semibold">Content Researcher</span> and <span class="text-green-400 font-semibold">Language Influencer</span>, I thrive in dynamic environments where creativity meets strategy.
                     </p>
                     <p class="text-lg mb-6 leading-relaxed">
-                        With experience in sales management, marketing, and supervision, I bring a comprehensive understanding of business operations and customer relationship management to every project.
+                        With experience in sales management, marketing, and supervision, I bring a comprehensive understanding of business operations.
                     </p>
-                    <div class="flex flex-wrap gap-3 md:gap-4 mt-8">
-                        <div class="flex items-center bg-sky-500/10 px-3 md:px-4 py-2 rounded-full hover:bg-sky-500/20 transition-colors duration-300 stagger-item" style="animation-delay: 0.1s">
-                            <i class="fas fa-rocket text-sky-400 mr-2"></i><span class="font-medium">Growth Mindset</span>
-                        </div>
-                        <div class="flex items-center bg-sky-500/10 px-3 md:px-4 py-2 rounded-full hover:bg-sky-500/20 transition-colors duration-300 stagger-item" style="animation-delay: 0.2s">
-                            <i class="fas fa-users text-sky-400 mr-2"></i><span class="font-medium">Team Collaboration</span>
-                        </div>
-                        <div class="flex items-center bg-sky-500/10 px-3 md:px-4 py-2 rounded-full hover:bg-sky-500/20 transition-colors duration-300 stagger-item" style="animation-delay: 0.3s">
-                            <i class="fas fa-lightbulb text-sky-400 mr-2"></i><span class="font-medium">Creative Solutions</span>
-                        </div>
-                    </div>
                 </div>
                 <div class="space-y-6 slide-in-right">
                     <div class="glass-card p-6 rounded-2xl card-hover">
                         <h3 class="text-xl font-bold text-white mb-4 flex items-center"><i class="fas fa-info-circle text-gradient-animate mr-3"></i>Quick Facts</h3>
-                        <div class="space-y-3">
-                            <p class="flex items-center hover:text-sky-400 transition-colors duration-300"><i class="fas fa-map-marker-alt text-sky-400 mr-2"></i><span>Gazipur, Dhaka, Bangladesh</span></p>
-                            <p class="flex items-center hover:text-sky-400 transition-colors duration-300"><i class="fas fa-envelope text-sky-400 mr-2"></i><span>shahadatislamalf@gmail.com</span></p>
-                            <p class="flex items-center hover:text-sky-400 transition-colors duration-300"><i class="fas fa-phone text-sky-400 mr-2"></i><span>01320828224</span></p>
-                            <p class="flex items-center hover:text-sky-400 transition-colors duration-300"><i class="fas fa-calendar text-sky-400 mr-2"></i><span>Born: 27 Dec 2002</span></p>
-                        </div>
-                    </div>
-                    
-                    <div class="glass-card p-6 rounded-2xl card-hover">
-                        <h3 class="text-xl font-bold text-white mb-4 flex items-center"><i class="fas fa-globe-asia text-gradient-animate mr-3"></i>Language Proficiency</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center hover:translate-x-2 transition-transform duration-300">
-                                <div class="language-flag bengali-flag"></div>
-                                <div>
-                                    <p class="font-medium">Bengali</p>
-                                    <p class="text-sm text-slate-500">Mother tongue</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center hover:translate-x-2 transition-transform duration-300">
-                                <div class="language-flag english-flag"></div>
-                                <div>
-                                    <p class="font-medium">English</p>
-                                    <p class="text-sm text-slate-500">Fluent in Reading, Writing and speaking</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center hover:translate-x-2 transition-transform duration-300">
-                                <div class="language-flag hindi-flag"></div>
-                                <div>
-                                    <p class="font-medium">Hindi</p>
-                                    <p class="text-sm text-slate-500">Speaking ability</p>
-                                </div>
-                            </div>
+                        <div class="space-y-3 text-sm">
+                            <p><i class="fas fa-map-marker-alt text-sky-400 mr-2"></i>Gazipur, Dhaka</p>
+                            <p><i class="fas fa-envelope text-sky-400 mr-2"></i>shahadatislamalf@gmail.com</p>
+                            <p><i class="fas fa-phone text-sky-400 mr-2"></i>01320828224</p>
+                            <p><i class="fas fa-calendar text-sky-400 mr-2"></i>Born: 27 Dec 2002</p>
                         </div>
                     </div>
                 </div>
@@ -231,590 +159,105 @@
         </div>
     </section>
 
-    <!-- Section Divider -->
-    <div class="section-divider"></div>
-
-    <!-- Professional Experience -->
     <section id="experience" class="py-16 md:py-20 bg-[#1e293b]/30 px-4 section">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 md:mb-12 flex items-center slide-in-left">
-                <span class="text-gradient-animate mr-3"><i class="fas fa-briefcase"></i></span> Professional Experience
-            </h2>
-            <div class="grid md:grid-cols-3 gap-6 touch-spacing">
-                <!-- Experience 1 -->
-                <div class="glass-card p-6 rounded-2xl card-hover slide-in-up" style="animation-delay: 0.1s">
-                    <div class="text-center mb-4">
-                        <div class="inline-flex items-center justify-center w-16 h-16 bg-sky-500/20 rounded-full mb-4 hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-user-tie text-2xl text-sky-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Sales Manager</h3>
-                        <p class="text-slate-400 mb-2">Zero Zone Electronics, Gazipur</p>
-                    </div>
-                    <div class="text-center mb-4">
-                        <span class="inline-block bg-sky-500/20 text-sky-400 px-3 py-1 rounded-full text-sm font-medium">
-                            <i class="fas fa-clock mr-1"></i> One Year Experience
-                        </span>
-                    </div>
-                    <p class="text-slate-300 leading-relaxed text-center">
-                        Led sales operations, managed customer relationships, and developed strategies to increase market share in the competitive electronics retail sector.
-                    </p>
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-white mb-12">Professional Experience</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-2xl">
+                    <i class="fas fa-user-tie text-2xl text-sky-400 mb-4"></i>
+                    <h3 class="font-bold text-white">Sales Manager</h3>
+                    <p class="text-slate-400 text-sm">Zero Zone Electronics</p>
                 </div>
-
-                <!-- Experience 2 -->
-                <div class="glass-card p-6 rounded-2xl card-hover slide-in-up" style="animation-delay: 0.2s">
-                    <div class="text-center mb-4">
-                        <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-500/20 rounded-full mb-4 hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-chart-line text-2xl text-blue-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Marketing Officer</h3>
-                        <p class="text-slate-400 mb-2">Best Electronics Online</p>
-                    </div>
-                    <div class="text-center mb-4">
-                        <span class="inline-block bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm font-medium">
-                            <i class="fas fa-clock mr-1"></i> Three Months Experience
-                        </span>
-                    </div>
-                    <p class="text-slate-300 leading-relaxed text-center">
-                        Developed and implemented online marketing strategies for electronic products, managed social media campaigns, and analyzed digital marketing performance metrics.
-                    </p>
+                <div class="glass-card p-6 rounded-2xl">
+                    <i class="fas fa-chart-line text-2xl text-blue-400 mb-4"></i>
+                    <h3 class="font-bold text-white">Marketing Officer</h3>
+                    <p class="text-slate-400 text-sm">Best Electronics</p>
                 </div>
-
-                <!-- Experience 3 -->
-                <div class="glass-card p-6 rounded-2xl card-hover slide-in-up" style="animation-delay: 0.3s">
-                    <div class="text-center mb-4">
-                        <div class="inline-flex items-center justify-center w-16 h-16 bg-green-500/20 rounded-full mb-4 hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-clipboard-check text-2xl text-green-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Assistant Supervisor</h3>
-                        <p class="text-slate-400 mb-2">Decent Electro LTD</p>
-                    </div>
-                    <div class="text-center mb-4">
-                        <span class="inline-block bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-medium">
-                            <i class="fas fa-clock mr-1"></i> Three Months Experience
-                        </span>
-                    </div>
-                    <p class="text-slate-300 leading-relaxed text-center">
-                        Assisted in supervising operations, coordinating team activities, and ensuring quality standards in electronic manufacturing processes.
-                    </p>
+                <div class="glass-card p-6 rounded-2xl">
+                    <i class="fas fa-clipboard-check text-2xl text-green-400 mb-4"></i>
+                    <h3 class="font-bold text-white">Assistant Supervisor</h3>
+                    <p class="text-slate-400 text-sm">Decent Electro LTD</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Divider -->
-    <div class="section-divider"></div>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-16 md:py-20 px-4 section">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 md:mb-12 flex items-center slide-in-left">
-                <span class="text-gradient-animate mr-3"><i class="fas fa-tools"></i></span> Skills & Certifications
-            </h2>
-            <div class="grid md:grid-cols-2 gap-6 md:gap-8 touch-spacing">
-                <!-- Skills -->
-                <div class="space-y-6 slide-in-left">
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">Microsoft Office Suite</span>
-                            <span class="text-sky-400 font-bold">90%</span>
-                        </div>
-                        <div class="w-full bg-slate-700 rounded-full h-3">
-                            <div class="skill-bar bg-gradient-to-r from-sky-500 to-blue-400 h-3 rounded-full" style="width: 90%;"></div>
-                        </div>
-                        <p class="text-sm text-slate-500 mt-1">Word, Excel, Power Point - Advanced Proficiency</p>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">Digital Marketing</span>
-                            <span class="text-green-400 font-bold">85%</span>
-                        </div>
-                        <div class="w-full bg-slate-700 rounded-full h-3">
-                            <div class="skill-bar bg-gradient-to-r from-green-500 to-emerald-400 h-3 rounded-full" style="width: 85%;"></div>
-                        </div>
-                        <p class="text-sm text-slate-500 mt-1">Google Certified: Fundamentals of Digital Marketing</p>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-1">
-                            <span class="font-medium">Web Development</span>
-                            <span class="text-purple-400 font-bold">80%</span>
-                        </div>
-                        <div class="w-full bg-slate-700 rounded-full h-3">
-                            <div class="skill-bar bg-gradient-to-r from-purple-500 to-pink-400 h-3 rounded-full" style="width: 80%;"></div>
-                        </div>
-                        <p class="text-sm text-slate-500 mt-1">HTML, CSS, WordPress Website Customisation</p>
-                    </div>
-                </div>
-                
-                <!-- Skill Tags & Certifications -->
-                <div class="slide-in-right">
-                    <h3 class="text-xl font-bold text-white mb-6">Technical Skills</h3>
-                    <div class="flex flex-wrap gap-3 mb-8">
-                        <span class="px-4 py-2 bg-[#0f172a] border border-sky-500/30 rounded-full text-sky-400 font-medium hover-glow transition-all hover:scale-105 hover:border-sky-500/60">Microsoft Word</span>
-                        <span class="px-4 py-2 bg-[#0f172a] border border-sky-500/30 rounded-full text-sky-400 font-medium hover-glow transition-all hover:scale-105 hover:border-sky-500/60">Microsoft Excel</span>
-                        <span class="px-4 py-2 bg-[#0f172a] border border-sky-500/30 rounded-full text-sky-400 font-medium hover-glow transition-all hover:scale-105 hover:border-sky-500/60">Microsoft PowerPoint</span>
-                        <span class="px-4 py-2 bg-[#0f172a] border border-green-500/30 rounded-full text-green-400 font-medium hover-glow transition-all hover:scale-105 hover:border-green-500/60">HTML/CSS</span>
-                        <span class="px-4 py-2 bg-[#0f172a] border border-green-500/30 rounded-full text-green-400 font-medium hover-glow transition-all hover:scale-105 hover:border-green-500/60">WordPress</span>
-                        <span class="px-4 py-2 bg-[#0f172a] border border-purple-500/30 rounded-full text-purple-400 font-medium hover-glow transition-all hover:scale-105 hover:border-purple-500/60">Google Analytics</span>
-                        <span class="px-4 py-2 bg-[#0f172a] border border-sky-500/30 rounded-full text-sky-400 font-medium hover-glow transition-all hover:scale-105 hover:border-sky-500/60">Social Media Marketing</span>
-                        <span class="px-4 py-2 bg-[#0f172a] border border-sky-500/30 rounded-full text-sky-400 font-medium hover-glow transition-all hover:scale-105 hover:border-sky-500/60">Digital Strategy</span>
-                    </div>
-                    
-                    <!-- Certification Card -->
-                    <div class="glass-card p-6 rounded-2xl card-hover">
-                        <h4 class="font-bold text-white mb-3 flex items-center">
-                            <i class="fas fa-certificate text-yellow-400 mr-2"></i> Google Certification
-                        </h4>
-                        <p class="text-slate-300 mb-2">Fundamentals of Digital Marketing</p>
-                        <p class="text-sm text-slate-500 font-mono">Certificate ID: E5MPT5DRM</p>
-                        <p class="text-sm text-slate-400 mt-3">Completed comprehensive training in digital marketing fundamentals including SEO, social media, email marketing, and analytics.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Divider -->
-    <div class="section-divider"></div>
-
-    <!-- Education Section -->
     <section id="education" class="py-16 md:py-20 bg-[#1e293b]/30 px-4 section">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 md:mb-12 flex items-center slide-in-left">
-                <span class="text-gradient-animate mr-3"><i class="fas fa-graduation-cap"></i></span> Academic Records
-            </h2>
-            
-            <div class="grid md:grid-cols-3 gap-6 touch-spacing mb-8 md:mb-12">
-                <!-- University Education -->
-                <div class="glass-card p-6 rounded-2xl card-hover slide-in-up" style="animation-delay: 0.1s">
-                    <div class="text-center mb-4">
-                        <div class="inline-flex items-center justify-center w-16 h-16 bg-sky-500/20 rounded-full mb-4 hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-university text-2xl text-sky-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Bachelor of Social Science</h3>
-                        <p class="text-slate-400 mb-2">B.S.S. (Honours)</p>
-                    </div>
-                    <div class="space-y-2">
-                        <p class="flex items-center text-slate-300 hover:text-sky-300 transition-colors duration-300">
-                            <i class="fas fa-users text-sky-400 mr-2 w-5"></i>
-                            <span>Group: Humanities</span>
-                        </p>
-                        <p class="flex items-center text-slate-300 hover:text-sky-300 transition-colors duration-300">
-                            <i class="fas fa-school text-sky-400 mr-2 w-5"></i>
-                            <span>Bhawal Badre Alam Govt. University</span>
-                        </p>
-                        <p class="flex items-center text-slate-300 hover:text-sky-300 transition-colors duration-300">
-                            <i class="fas fa-map text-sky-400 mr-2 w-5"></i>
-                            <span>Board: Dhaka</span>
-                        </p>
-                        <p class="flex items-center text-slate-300 hover:text-sky-300 transition-colors duration-300">
-                            <i class="fas fa-hourglass-half text-sky-400 mr-2 w-5"></i>
-                            <span>Currently Pursuing</span>
-                        </p>
-                    </div>
+            <h2 class="text-3xl font-bold text-white mb-12">Academic Records</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <i class="fas fa-university text-2xl text-sky-400 mb-4"></i>
+                    <h4 class="font-bold text-white">B.S.S. (Honours)</h4>
+                    <p class="text-sm">Currently Pursuing</p>
                 </div>
-
-                <!-- College Education -->
-                <div class="glass-card p-6 rounded-2xl card-hover slide-in-up" style="animation-delay: 0.2s">
-                    <div class="text-center mb-4">
-                        <div class="inline-flex items-center justify-center w-16 h-16 bg-green-500/20 rounded-full mb-4 hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-graduation-cap text-2xl text-green-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Higher Secondary Certificate</h3>
-                        <p class="text-slate-400 mb-2">H.S.C</p>
-                    </div>
-                    <div class="space-y-2">
-                        <p class="flex items-center text-slate-300 hover:text-green-300 transition-colors duration-300">
-                            <i class="fas fa-users text-green-400 mr-2 w-5"></i>
-                            <span>Group: Humanities</span>
-                        </p>
-                        <p class="flex items-center text-slate-300 hover:text-green-300 transition-colors duration-300">
-                            <i class="fas fa-school text-green-400 mr-2 w-5"></i>
-                            <span>Kazi Azim Uddin University College</span>
-                        </p>
-                        <p class="flex items-center text-slate-300 hover:text-green-300 transition-colors duration-300">
-                            <i class="fas fa-map text-green-400 mr-2 w-5"></i>
-                            <span>Board: Dhaka</span>
-                        </p>
-                        <p class="flex items-center text-slate-300 hover:text-green-300 transition-colors duration-300">
-                            <i class="fas fa-calendar-check text-green-400 mr-2 w-5"></i>
-                            <span>Passing Year: 2022</span>
-                        </p>
-                    </div>
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <i class="fas fa-graduation-cap text-2xl text-green-400 mb-4"></i>
+                    <h4 class="font-bold text-white">H.S.C</h4>
+                    <p class="text-sm">Passing Year: 2022</p>
                 </div>
-
-                <!-- School Education -->
-                <div class="glass-card p-6 rounded-2xl card-hover slide-in-up" style="animation-delay: 0.3s">
-                    <div class="text-center mb-4">
-                        <div class="inline-flex items-center justify-center w-16 h-16 bg-purple-500/20 rounded-full mb-4 hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-school text-2xl text-purple-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Secondary School Certificate</h3>
-                        <p class="text-slate-400 mb-2">S.S.C</p>
-                    </div>
-                    <div class="space-y-2">
-                        <p class="flex items-center text-slate-300 hover:text-purple-300 transition-colors duration-300">
-                            <i class="fas fa-users text-purple-400 mr-2 w-5"></i>
-                            <span>Group: Humanities</span>
-                        </p>
-                        <p class="flex items-center text-slate-300 hover:text-purple-300 transition-colors duration-300">
-                            <i class="fas fa-school text-purple-400 mr-2 w-5"></i>
-                            <span>B.M.T.F High School</span>
-                        </p>
-                        <p class="flex items-center text-slate-300 hover:text-purple-300 transition-colors duration-300">
-                            <i class="fas fa-map text-purple-400 mr-2 w-5"></i>
-                            <span>Board: Dhaka</span>
-                        </p>
-                        <p class="flex items-center text-slate-300 hover:text-purple-300 transition-colors duration-300">
-                            <i class="fas fa-calendar-check text-purple-400 mr-2 w-5"></i>
-                            <span>Passing Year: 2020</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Academic Timeline -->
-            <div class="glass-card p-6 md:p-8 rounded-2xl card-hover slide-in-up" style="animation-delay: 0.4s">
-                <h3 class="text-2xl font-bold text-white mb-6 md:mb-8 text-center">
-                    <i class="fas fa-timeline mr-2"></i> Academic Timeline
-                </h3>
-                <div class="relative">
-                    <!-- Timeline line -->
-                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-sky-500/50 to-blue-500/50"></div>
-                    
-                    <div class="space-y-8 md:space-y-12">
-                        <!-- SSC -->
-                        <div class="relative flex flex-col md:flex-row items-center">
-                            <div class="timeline-dot absolute left-1/2 md:relative md:left-auto transform -translate-x-1/2 md:transform-none w-4 h-4 bg-purple-500 rounded-full z-10"></div>
-                            <div class="w-full md:w-5/12 pr-0 md:pr-6 text-center md:text-right mt-4 md:mt-0">
-                                <div class="text-purple-400 font-semibold mb-1">Completed: 2020</div>
-                                <h4 class="text-lg font-bold text-white">Secondary School Certificate</h4>
-                                <p class="text-slate-400">Humanities Group</p>
-                            </div>
-                            <div class="hidden md:block md:w-2/12"></div>
-                            <div class="w-full md:w-5/12 pl-0 md:pl-6 text-center md:text-left mt-4 md:mt-0">
-                                <h4 class="text-lg font-bold text-white">B.M.T.F High School</h4>
-                                <p class="text-slate-300">Dhaka Board</p>
-                            </div>
-                        </div>
-                        
-                        <!-- HSC -->
-                        <div class="relative flex flex-col md:flex-row items-center">
-                            <div class="timeline-dot absolute left-1/2 md:relative md:left-auto transform -translate-x-1/2 md:transform-none w-4 h-4 bg-green-500 rounded-full z-10"></div>
-                            <div class="w-full md:w-5/12 pr-0 md:pr-6 text-center md:text-right mt-4 md:mt-0">
-                                <h4 class="text-lg font-bold text-white">Kazi Azim Uddin University College</h4>
-                                <p class="text-slate-300">Dhaka Board</p>
-                            </div>
-                            <div class="hidden md:block md:w-2/12 text-center">
-                                <div class="text-green-400 font-semibold">Completed: 2022</div>
-                            </div>
-                            <div class="w-full md:w-5/12 pl-0 md:pl-6 text-center md:text-left mt-4 md:mt-0">
-                                <h4 class="text-lg font-bold text-white">Higher Secondary Certificate</h4>
-                                <p class="text-slate-400">Humanities Group</p>
-                            </div>
-                        </div>
-                        
-                        <!-- BSS -->
-                        <div class="relative flex flex-col md:flex-row items-center">
-                            <div class="timeline-dot absolute left-1/2 md:relative md:left-auto transform -translate-x-1/2 md:transform-none w-4 h-4 bg-sky-500 rounded-full z-10"></div>
-                            <div class="w-full md:w-5/12 pr-0 md:pr-6 text-center md:text-right mt-4 md:mt-0">
-                                <div class="text-sky-400 font-semibold mb-1">2023 - Present</div>
-                                <h4 class="text-lg font-bold text-white">Bachelor of Social Science</h4>
-                                <p class="text-slate-400">B.S.S. (Honours) - Humanities</p>
-                            </div>
-                            <div class="hidden md:block md:w-2/12"></div>
-                            <div class="w-full md:w-5/12 pl-0 md:pl-6 text-center md:text-left mt-4 md:mt-0">
-                                <h4 class="text-lg font-bold text-white">Bhawal Badre Alam Govt. University</h4>
-                                <p class="text-slate-300">Dhaka Board - Currently Pursuing</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <i class="fas fa-school text-2xl text-purple-400 mb-4"></i>
+                    <h4 class="font-bold text-white">S.S.C</h4>
+                    <p class="text-sm">Passing Year: 2020</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Divider -->
-    <div class="section-divider"></div>
-
-    <!-- Personal Details Section -->
     <section id="personal" class="py-16 md:py-20 px-4 section">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 md:mb-12 flex items-center slide-in-left">
-                <span class="text-gradient-animate mr-3"><i class="fas fa-user-circle"></i></span> Personal Details
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center">
+                <i class="fas fa-user-circle mr-3"></i> Personal Details
             </h2>
-            
-            <div class="glass-card p-6 md:p-8 rounded-2xl card-hover slide-in-up">
-                <div class="grid md:grid-cols-2 gap-6 md:gap-8">
-                    <!-- Left Column -->
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-6">Personal Information</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start hover:translate-x-2 transition-transform duration-300">
-                                <div class="bg-sky-500/10 p-3 rounded-lg mr-4 hover:bg-sky-500/20 transition-colors duration-300">
-                                    <i class="fas fa-user text-sky-400"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white">Full Name</h4>
-                                    <p class="text-slate-300">Shahadat Islam Alif</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start hover:translate-x-2 transition-transform duration-300">
-                                <div class="bg-sky-500/10 p-3 rounded-lg mr-4 hover:bg-sky-500/20 transition-colors duration-300">
-                                    <i class="fas fa-male text-sky-400"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white">Father's Name</h4>
-                                    <p class="text-slate-300">Saiful Islam</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start hover:translate-x-2 transition-transform duration-300">
-                                <div class="bg-sky-500/10 p-3 rounded-lg mr-4 hover:bg-sky-500/20 transition-colors duration-300">
-                                    <i class="fas fa-female text-sky-400"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white">Mother's Name</h4>
-                                    <p class="text-slate-300">Shirena Begum</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start hover:translate-x-2 transition-transform duration-300">
-                                <div class="bg-sky-500/10 p-3 rounded-lg mr-4 hover:bg-sky-500/20 transition-colors duration-300">
-                                    <i class="fas fa-map-marker-alt text-sky-400"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white">Permanent Address</h4>
-                                    <p class="text-slate-300">House no: 115/2, village: Marialy, Thana: Joydebpur<br>
-                                    District: Gazipur Sadar-1700</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Right Column -->
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-6">Additional Information</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start hover:translate-x-2 transition-transform duration-300">
-                                <div class="bg-green-500/10 p-3 rounded-lg mr-4 hover:bg-green-500/20 transition-colors duration-300">
-                                    <i class="fas fa-birthday-cake text-green-400"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white">Date of Birth</h4>
-                                    <p class="text-slate-300">27th December 2002 (27/12/2002)</p>
-                                </div>
-                            </div>
-                            
-                            <div class="grid grid-cols-2 gap-4 mt-6">
-                                <div class="hover:scale-105 transition-transform duration-300">
-                                    <h4 class="font-bold text-white mb-1">Gender</h4>
-                                    <p class="text-slate-300">Male</p>
-                                </div>
-                                <div class="hover:scale-105 transition-transform duration-300">
-                                    <h4 class="font-bold text-white mb-1">Marital Status</h4>
-                                    <p class="text-slate-300">Single</p>
-                                </div>
-                                <div class="hover:scale-105 transition-transform duration-300">
-                                    <h4 class="font-bold text-white mb-1">Height</h4>
-                                    <p class="text-slate-300">5'10"</p>
-                                </div>
-                                <div class="hover:scale-105 transition-transform duration-300">
-                                    <h4 class="font-bold text-white mb-1">Religion</h4>
-                                    <p class="text-slate-300">Islam</p>
-                                </div>
-                                <div class="hover:scale-105 transition-transform duration-300">
-                                    <h4 class="font-bold text-white mb-1">Nationality</h4>
-                                    <p class="text-slate-300">Bangladeshi</p>
-                                </div>
-                                <div class="hover:scale-105 transition-transform duration-300">
-                                    <h4 class="font-bold text-white mb-1">Blood Group</h4>
-                                    <p class="text-slate-300">A+ (Positive)</p>
-                                </div>
-                            </div>
-                            
-                            
-                        </div>
-                    </div>
+            <div class="glass-card p-8 rounded-2xl grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <p><span class="font-bold text-sky-400">Father:</span> Saiful Islam</p>
+                    <p><span class="font-bold text-sky-400">Mother:</span> Shirena Begum</p>
+                    <p><span class="font-bold text-sky-400">Blood Group:</span> A+</p>
+                </div>
+                <div class="space-y-4">
+                    <p><span class="font-bold text-green-400">Height:</span> 5'10"</p>
+                    <p><span class="font-bold text-green-400">Religion:</span> Islam</p>
+                    <p><span class="font-bold text-green-400">Nationality:</span> Bangladeshi</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Divider -->
-    <div class="section-divider"></div>
-
-    <!-- References Section -->
-    <section id="references" class="py-16 md:py-20 bg-[#1e293b]/30 px-4 section">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 md:mb-12 flex items-center slide-in-left">
-                <span class="text-gradient-animate mr-3"><i class="fas fa-users"></i></span> References
-            </h2>
-            
-            <div class="grid md:grid-cols-2 gap-6 md:gap-8 touch-spacing">
-                <!-- Reference 1 -->
-                <div class="glass-card p-6 rounded-2xl card-hover slide-in-left" style="animation-delay: 0.1s">
-                    <div class="flex items-start mb-4">
-                        <div class="bg-sky-500/20 p-3 rounded-full mr-4 hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-user-graduate text-sky-400 text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white">Imran Ahammed Shohel</h3>
-                            <p class="text-slate-400">Lecturer</p>
-                            <p class="text-sm text-slate-500 mt-1">B.Sc (Hons), M.Sc (CU)</p>
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <p class="flex items-center text-slate-300 hover:text-sky-300 transition-colors duration-300">
-                            <i class="fas fa-university mr-2 text-sky-400"></i>
-                            <span>Kazi Azim Uddin University College</span>
-                        </p>
-                        <p class="flex items-center text-slate-300 hover:text-sky-300 transition-colors duration-300">
-                            <i class="fas fa-phone mr-2 text-sky-400"></i>
-                            <span>Cell: 01745-066616</span>
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- Reference 2 -->
-                <div class="glass-card p-6 rounded-2xl card-hover slide-in-right" style="animation-delay: 0.2s">
-                    <div class="flex items-start mb-4">
-                        <div class="bg-green-500/20 p-3 rounded-full mr-4 hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-briefcase text-green-400 text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white">Mahidul Islam</h3>
-                            <p class="text-slate-400">Assistant General Manager (Operation)</p>
-                            <p class="text-sm text-slate-500 mt-1">PRAN-RFL Center</p>
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <p class="flex items-center text-slate-300 hover:text-green-300 transition-colors duration-300">
-                            <i class="fas fa-building mr-2 text-green-400"></i>
-                            <span>105 Pragati Sarani, Middle Badda, Dhaka</span>
-                        </p>
-                        <p class="flex items-center text-slate-300 hover:text-green-300 transition-colors duration-300">
-                            <i class="fas fa-phone mr-2 text-green-400"></i>
-                            <span>Cell: 01844-658167</span>
-                        </p>
-                        <p class="text-sm text-slate-400 mt-2 italic">
-                            Former: Best Buy Electronics Online, Gazipur Sadar-1700
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Note -->
-            <div class="mt-8 text-center text-slate-400 text-sm slide-in-up" style="animation-delay: 0.3s">
-                <p><i class="fas fa-info-circle mr-2"></i>References available upon request</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Divider -->
-    <div class="section-divider"></div>
-
-    <!-- Contact Section -->
     <section id="contact" class="py-16 md:py-20 px-4 section">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 md:mb-12 flex items-center slide-in-left">
-                <span class="text-gradient-animate mr-3"><i class="fas fa-envelope"></i></span> Contact Information
-            </h2>
-            
-            <div class="glass-card p-6 md:p-8 rounded-2xl card-hover slide-in-up">
-                <div class="grid md:grid-cols-2 gap-6 md:gap-8">
-                    <!-- Contact Information -->
-                    <div class="space-y-6">
-                        <div class="flex items-start hover:translate-x-2 transition-transform duration-300">
-                            <div class="bg-sky-500/10 p-3 rounded-lg mr-4 hover:bg-sky-500/20 transition-colors duration-300">
-                                <i class="fas fa-phone text-sky-400"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white">Phone Number</h4>
-                                <p class="text-slate-300 text-lg">+880 1320 828224</p>
-                                <p class="text-slate-500 text-sm">Available: 9:00 AM - 8:00 PM</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start hover:translate-x-2 transition-transform duration-300">
-                            <div class="bg-sky-500/10 p-3 rounded-lg mr-4 hover:bg-sky-500/20 transition-colors duration-300">
-                                <i class="fas fa-envelope text-sky-400"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white">Email Address</h4>
-                                <p class="text-slate-300 text-lg">shahadatislamalf@gmail.com</p>
-                                <p class="text-slate-500 text-sm">Response within 24 hours</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start hover:translate-x-2 transition-transform duration-300">
-                            <div class="bg-sky-500/10 p-3 rounded-lg mr-4 hover:bg-sky-500/20 transition-colors duration-300">
-                                <i class="fas fa-map-marker-alt text-sky-400"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white">Location</h4>
-                                <p class="text-slate-300">Gazipur, Dhaka, Bangladesh</p>
-                                <p class="text-slate-500 text-sm">Available for remote work worldwide</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start hover:translate-x-2 transition-transform duration-300">
-                            <div class="bg-sky-500/10 p-3 rounded-lg mr-4 hover:bg-sky-500/20 transition-colors duration-300">
-                                <i class="fas fa-home text-sky-400"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white">Permanent Address</h4>
-                                <p class="text-slate-300">House no: 115/2, Marialy, Joydebpur<br>Gazipur Sadar-1700</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Call to Action -->
-                    <div class="flex flex-col justify-center items-center text-center p-6">
-                        <h3 class="text-2xl font-bold text-white mb-4">Let's Work Together</h3>
-                        <p class="text-slate-400 mb-6">
-                            Interested in collaborating or have a project in mind? Feel free to reach out!
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4 w-full max-w-md">
-                            <!-- Updated email button -->
-                            <button id="contactEmailBtn" class="bg-gradient-to-r from-sky-600 to-blue-500 hover:from-sky-700 hover:to-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-xl hover:shadow-sky-500/30 flex items-center justify-center btn-hover transform hover:scale-105 w-full">
-                                <i class="fas fa-paper-plane mr-2"></i> Send Email
-                            </button>
-                            <a href="tel:+8801320828224" class="glass-card hover:bg-slate-800/80 border border-sky-500/30 px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center btn-hover transform hover:scale-105 w-full">
-                                <i class="fas fa-phone mr-2"></i> Call Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-white mb-12">Contact Me</h2>
+            <div class="glass-card p-8 rounded-2xl inline-block">
+                <p class="text-xl mb-6">Let's work together!</p>
+                <button id="contactEmailBtn" class="bg-sky-600 hover:bg-sky-700 text-white px-8 py-3 rounded-lg font-bold">
+                    Send Email
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-8 glass-card border-t border-sky-500/20">
-        <div class="max-w-5xl mx-auto px-4 text-center">
-            <p class="text-white font-bold text-xl mb-2 slide-in-up">Shahadat Islam Alif</p>
-            <p class="text-slate-400 mb-4 slide-in-up" style="animation-delay: 0.1s">Content Researcher & Language Influencer</p>
-            <div class="flex flex-wrap justify-center gap-4 text-sm text-slate-500 mb-4 slide-in-up" style="animation-delay: 0.2s">
-                
-                <span><i class="fas fa-tint mr-1"></i> Blood Group: A+</span>
-                <span><i class="fas fa-map-marker-alt mr-1"></i> Gazipur, Dhaka</span>
-            </div>
-            <p class="text-slate-500 text-sm slide-in-up" style="animation-delay: 0.3s">&copy; 2024 Shahadat Islam Alif. All rights reserved.</p>
-        </div>
+    <footer class="py-8 glass-card border-t border-sky-500/20 text-center">
+        <p class="text-white font-bold">&copy; 2024 Shahadat Islam Alif</p>
     </footer>
 
-    
-            
-            
+    <div id="chat-window" class="fixed bottom-24 right-6 w-[320px] md:w-[380px] h-[450px] bg-[#1e293b] border border-slate-700 rounded-2xl shadow-2xl z-[1000] flex flex-col overflow-hidden" style="display: none;">
+        <div class="bg-gradient-to-r from-sky-600 to-purple-600 p-4 flex justify-between items-center">
+            <span class="text-white font-bold flex items-center"><i class="fas fa-robot mr-2"></i> Alif's AI Guide</span>
+            <button onclick="toggleChat()" class="text-white hover:text-red-300"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="chat-content" class="flex-1 p-4 overflow-y-auto flex flex-col gap-3 text-sm scrollbar-hide">
+            <div class="bg-slate-800 p-3 rounded-tr-xl rounded-br-xl rounded-bl-xl self-start max-w-[85%] text-slate-200">
+                Hi! I'm Alif's AI assistant. Ask me anything about his skills or projects!
+            </div>
+        </div>
+        <div class="p-3 border-t border-slate-700 bg-slate-900/50 flex gap-2">
+            <input type="text" id="user-input" placeholder="Type your question..." class="flex-1 bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm outline-none focus:border-sky-500">
+            <button onclick="sendToGemini()" class="bg-sky-600 hover:bg-sky-500 text-white p-2 rounded-lg transition-colors">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
 
-    
 </body>
 </html>
-
-
-
-
-
-
-
