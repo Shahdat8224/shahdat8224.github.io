@@ -661,3 +661,61 @@ html, body {
     overflow-x: hidden;
 }
 
+/* AI Pill Button: Small, Round, Bold */
+.ai-pill {
+    background: linear-gradient(135deg, #0ea5e9, #a855f7);
+    color: white;
+    padding: 5px 12px; /* Smaller size */
+    border-radius: 9999px; /* Perfectly round pill */
+    font-size: 15px; /* Matches branding text size */
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3);
+}
+
+/* Sparkle Animation */
+.ai-pill::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-25deg);
+    animation: sparkle 3s infinite;
+}
+
+@keyframes sparkle {
+    0% { left: -100%; }
+    15% { left: 100%; }
+    100% { left: 100%; }
+}
+
+/* Welcome Bubble sitting right under the AI button */
+.welcome-bubble {
+    position: fixed;
+    top: 70px;
+    right: 50px;
+    background: white;
+    color: #0f172a;
+    padding: 8px 12px;
+    border-radius: 12px 2px 12px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: 0.5s ease;
+    pointer-events: none;
+}
+
+.welcome-bubble.show { opacity: 1; transform: translateY(0); }
+
+/* Prevent side scrolling on mobile */
+html, body { max-width: 100%; overflow-x: hidden; }
