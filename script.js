@@ -1,15 +1,14 @@
 /**
  * SHAHADAT ALIF - SITE LOGIC
- * Includes: GitHub Redirect, AI Chat, Animations, and UI Interactions
  */
 
-// 1. IMMEDIATE GITHUB REDIRECT (Runs before anything else)
-if (window.location.hostname === "shahdat8224.github.io") {
+// 1. STRICT REDIRECT (Only runs if exactly on GitHub Pages)
+if (window.location.hostname.includes("github.io")) {
     window.location.replace("https://shahdat8224.vercel.app/");
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // --- UI Element Selectors ---
+    // UI Element Selectors
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileNav = document.getElementById('mobileNav');
     const emailBtn = document.getElementById('emailBtn');
@@ -19,30 +18,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const welcomeBubble = document.getElementById('welcome-bubble');
     const emailAddress = 'shahadatislamalf@gmail.com';
 
-    // --- Page Load & Progress ---
+    // Page Load & Progress
     window.addEventListener('load', () => {
-        setTimeout(() => { if (loadingBar) loadingBar.style.display = 'none'; }, 800);
+        if (loadingBar) {
+            setTimeout(() => { loadingBar.style.opacity = '0'; }, 500);
+            setTimeout(() => { loadingBar.style.display = 'none'; }, 800);
+        }
     });
 
     window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const winScroll = document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrolled = (winScroll / height) * 100;
         if (scrollProgress) scrollProgress.style.width = scrolled + '%';
     });
 
-    // --- Welcome Bubble (4 second delay) ---
+    // Welcome Bubble (4 second delay)
     setTimeout(() => {
         if (welcomeBubble) welcomeBubble.classList.add('show');
     }, 4000);
 
-    // --- Mobile Menu Toggle ---
+    // Mobile Menu Toggle
     if (mobileMenuBtn && mobileNav) {
         mobileMenuBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             const isActive = mobileNav.classList.toggle('active');
             mobileNav.classList.toggle('hidden');
-            
             const icon = mobileMenuBtn.querySelector('i');
             if (icon) {
                 icon.className = isActive ? 'fas fa-times text-lg' : 'fas fa-ellipsis-v text-lg';
@@ -50,15 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Close mobile menu on link click or clicking outside
-    document.addEventListener('click', (e) => {
-        if (mobileNav && !mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-            mobileNav.classList.remove('active');
-            mobileNav.classList.add('hidden');
-        }
-    });
-
-    // --- Email Copy Functionality ---
+    // Email Copy Functionality
     function handleEmailCopy(button) {
         if (!button) return;
         const originalText = button.innerHTML;
@@ -70,9 +63,8 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 button.classList.remove('email-copied');
                 button.innerHTML = originalText;
-                if (confirm('Email copied! Open your email app?')) {
-                    window.location.href = `mailto:${emailAddress}`;
-                }
+                // Removed the 'confirm' box as it can cause focus issues/reloads in some browsers
+                console.log("Email copied to clipboard");
             }, 2000);
         });
     }
@@ -80,18 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (emailBtn) emailBtn.addEventListener('click', () => handleEmailCopy(emailBtn));
     if (contactEmailBtn) contactEmailBtn.addEventListener('click', () => handleEmailCopy(contactEmailBtn));
 
-    // --- Intersection Observer for Animations ---
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-visible');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-up').forEach(el => observer.observe(el));
-
-    // --- Smooth Scrolling ---
+    // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -101,19 +82,25 @@ document.addEventListener('DOMContentLoaded', function() {
                     top: target.offsetTop - 80,
                     behavior: 'smooth'
                 });
+                // Close mobile menu if open
+                if (mobileNav) {
+                    mobileNav.classList.remove('active');
+                    mobileNav.classList.add('hidden');
+                }
             }
         });
     });
 });
 
-// --- AI Chat Logic (Outside DOMContentLoaded so toggleChat works from HTML) ---
+// AI Chat Logic
 function toggleChat() {
     const chat = document.getElementById('chat-window');
     const bubble = document.getElementById('welcome-bubble');
     if (bubble) bubble.classList.remove('show');
     
     if (chat) {
-        chat.style.display = (chat.style.display === 'none' || chat.style.display === '') ? 'flex' : 'none';
+        const isHidden = (chat.style.display === 'none' || chat.style.display === '');
+        chat.style.display = isHidden ? 'flex' : 'none';
     }
 }
 
@@ -123,7 +110,7 @@ async function sendToGemini() {
     if (!input || !content || !input.value.trim()) return;
 
     const userMessage = input.value.trim();
-    content.innerHTML += `<div class="user-msg" style="align-self: flex-end; background: #0ea5e9; color: white; padding: 10px; border-radius: 12px 12px 0 12px; margin-bottom: 10px; max-width: 85%; font-size: 14px;">${userMessage}</div>`;
+    content.innerHTML += `<div class="user-msg">${userMessage}</div>`;
     input.value = '';
 
     const typingDiv = document.createElement('div');
@@ -143,17 +130,18 @@ async function sendToGemini() {
         document.getElementById('typing-indicator')?.remove();
         
         const aiReply = data.reply || "I'm having trouble thinking right now.";
-        content.innerHTML += `<div class="ai-msg" style="align-self: flex-start; background: #334155; color: white; padding: 10px; border-radius: 12px 12px 12px 0; margin-bottom: 10px; max-width: 85%; font-size: 14px;">${aiReply}</div>`;
+        content.innerHTML += `<div class="ai-msg">${aiReply}</div>`;
     } catch (error) {
         document.getElementById('typing-indicator')?.remove();
-        content.innerHTML += `<div class="ai-msg" style="color: #ef4444; font-size: 12px;">Connection lost. Check your internet.</div>`;
+        content.innerHTML += `<div class="ai-msg" style="color: #ef4444;">Connection lost.</div>`;
     }
     content.scrollTop = content.scrollHeight;
 }
 
-// Enter key support
-document.addEventListener('keypress', (e) => {
+// Support Enter Key without Reload
+document.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && document.activeElement.id === 'user-input') {
+        e.preventDefault(); // STOPS RELOAD
         sendToGemini();
     }
 });
