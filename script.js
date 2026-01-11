@@ -198,3 +198,167 @@ document.addEventListener('keydown', (e) => {
         sendToGemini();
     }
 });
+
+
+// ===== AI CHAT COMING SOON =====
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Setting up AI Chat Coming Soon...');
+  
+  // Get the AI Chat button
+  const aiChatBtn = document.getElementById('aiChatBtn');
+  
+  if (aiChatBtn) {
+    console.log('Found AI Chat button');
+    
+    // Remove old onclick event
+    aiChatBtn.onclick = null;
+    
+    // Add new click event
+    aiChatBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Show modal
+      showComingSoonModal();
+    });
+    
+    // Change cursor
+    aiChatBtn.style.cursor = 'pointer';
+  } else {
+    console.log('AI Chat button not found, trying different selectors...');
+    
+    // Try to find it by text
+    document.querySelectorAll('button').forEach(btn => {
+      if (btn.textContent.includes('AI Chat') || btn.textContent.includes('🤖')) {
+        btn.onclick = function(e) {
+          e.preventDefault();
+          showComingSoonModal();
+        };
+      }
+    });
+  }
+  
+  // Modal functions
+  function showComingSoonModal() {
+    const modal = document.getElementById('comingSoonModal');
+    if (modal) {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      
+      // Add event listeners for modal
+      setupModalEvents();
+    } else {
+      // Fallback alert
+      alert('🚀 AI Chat Feature Coming Soon!\n\nI\'m currently working on training the AI model to provide you with the best chat experience. This feature will be available very soon!');
+    }
+  }
+  
+  function setupModalEvents() {
+    // Close button
+    const closeBtn = document.querySelector('.close-modal');
+    if (closeBtn) {
+      closeBtn.onclick = function() {
+        document.getElementById('comingSoonModal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+      };
+    }
+    
+    // Notify button
+    const notifyBtn = document.getElementById('notifyBtn');
+    if (notifyBtn) {
+      notifyBtn.onclick = function() {
+        // Show notification
+        showToast('✅ You will be notified when AI Chat is ready!');
+        
+        // Close modal
+        document.getElementById('comingSoonModal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+      };
+    }
+    
+    // Close on outside click
+    const modal = document.getElementById('comingSoonModal');
+    modal.onclick = function(e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    };
+    
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.style.display === 'flex') {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  }
+  
+  // Toast notification function
+  function showToast(message) {
+    // Remove existing toast
+    const oldToast = document.querySelector('.toast');
+    if (oldToast) oldToast.remove();
+    
+    // Create toast
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      z-index: 10000;
+      animation: toastSlideIn 0.3s ease;
+      max-width: 350px;
+    `;
+    
+    toast.innerHTML = `
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span style="font-size: 20px;">🤖</span>
+        <div>
+          <strong>AI Chat Feature</strong>
+          <p style="margin: 5px 0 0 0; font-size: 14px;">${message}</p>
+        </div>
+      </div>
+    `;
+    
+    // Add animation CSS
+    if (!document.querySelector('#toastStyles')) {
+      const style = document.createElement('style');
+      style.id = 'toastStyles';
+      style.textContent = `
+        @keyframes toastSlideIn {
+          from { transform: translateX(100%); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes toastSlideOut {
+          from { transform: translateX(0); opacity: 1; }
+          to { transform: translateX(100%); opacity: 0; }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(toast);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+      toast.style.animation = 'toastSlideOut 0.3s ease';
+      setTimeout(() => {
+        if (toast.parentNode) {
+          toast.remove();
+        }
+      }, 300);
+    }, 3000);
+  }
+  
+  // Make function globally available (optional)
+  window.showComingSoonModal = showComingSoonModal;
+});
+
+console.log('AI Chat Coming Soon script loaded');
