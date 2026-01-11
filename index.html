@@ -26,7 +26,26 @@
         </div>
         <div class="flex items-center gap-1.5">
             <button onclick="toggleChat()" class="ai-pill"><span class="vivo-ai-logo"></span> AI Chat</button>
-            <button class="lg:hidden text-white p-1" id="mobileMenuBtn"><i class="fas fa-ellipsis-v text-lg"></i></button>
+          <button class="btn btn-primary" id="aiChatBtn">
+  <i class="fas fa-robot"></i> AI Chat</button>
+      <!-- Coming Soon Modal -->
+<div id="comingSoonModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; justify-content: center; align-items: center;">
+  <div class="modal-content" style="background: white; padding: 40px; border-radius: 15px; max-width: 450px; width: 90%; text-align: center; position: relative;">
+    <span class="close-modal" style="position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #333;">&times;</span>
+    
+    <div class="modal-icon" style="font-size: 48px; margin-bottom: 20px;">🚀</div>
+    <h2 style="color: #333; margin-bottom: 15px;">AI Chat Coming Soon!</h2>
+    <p style="color: #666; margin-bottom: 10px; line-height: 1.5;">I'm currently training the AI model to provide you with the best experience.</p>
+    <p style="color: #666; margin-bottom: 20px;">This feature will be available very soon!</p>
+    
+    <button id="notifyBtn" class="modal-btn" style="margin-top: 15px; padding: 12px 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; font-weight: 600;">
+      Notify Me When Ready
+    </button>
+  </div>
+</div>
+        
+        
+        
         </div>
         <div class="mobile-nav hidden absolute top-16 left-0 w-full bg-[#0f172a] border-b border-sky-500/20 flex-col p-4 space-y-2 z-40" id="mobileNav">
             <a href="#home" class="hover:text-sky-400 py-2"><i class="fas fa-home mr-3"></i>Home</a>
@@ -330,6 +349,7 @@
     </div>
 </body>
 </html>
+
 
 
 
