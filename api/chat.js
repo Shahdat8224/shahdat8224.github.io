@@ -1,5 +1,4 @@
 export default async function (req, res) {
-    // 1. Check for POST method
     if (req.method !== 'POST') {
         return res.status(405).json({ reply: "Method not allowed" });
     }
@@ -11,7 +10,6 @@ export default async function (req, res) {
     }
 
     try {
-        // Vercel automatically parses JSON bodies
         const userMessage = req.body.message;
 
         if (!userMessage) {
