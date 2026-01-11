@@ -343,15 +343,3 @@ body {
 
 
 
-
-
-/* This will hide the chat widget floating button */
-#chatbot,
-.chatbot,
-.ai-assistant,
-[class*="chat"],
-[class*="ai"] {
-    display: none !important;
-    visibility: hidden !important;
-}
-
