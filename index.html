@@ -1,57 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="script.js" defer></script>
+    <script type="text/javascript">
+        if (window.location.hostname === "shahdat8224.github.io") {
+            window.location.replace("https://shahdat8224.vercel.app/");
+        }
+    </script>
+    <meta http-equiv="refresh" content="0; url=https://shahdat8224.vercel.app/">
+    <link rel="canonical" href="https://shahdat8224.vercel.app/" />
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shahadat Islam Alif | Content Researcher & Language Influencer</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="bg-[#0f172a] text-slate-300">
 
     <div class="scroll-progress" id="scrollProgress"></div>
-
     <div class="loading-bar" id="loadingBar"></div>
 
-   <nav class="sticky top-0 z-50 glass-card h-16 px-4 md:px-8 flex items-center justify-between">
-    <a href="#" class="text-xl font-bold text-white transition-all duration-300 transform hover:scale-105">
-        Shahadat<span class="text-gradient-animate">Alif</span>
-    </a>
+    <nav class="sticky top-0 z-50 glass-card h-16 px-4 md:px-8 flex items-center justify-between">
+        <a href="#" class="text-xl font-bold text-white transition-all duration-300 transform hover:scale-105">
+            Shahadat<span class="text-gradient-animate">Alif</span>
+        </a>
 
-    <div class="hidden lg:flex space-x-6">
-        <a href="#home" class="hover:text-sky-400 text-sm font-medium">Home</a>
-        <a href="#about" class="hover:text-sky-400 text-sm font-medium">About</a>
-        <a href="#experience" class="hover:text-sky-400 text-sm font-medium">Experience</a>
-        <a href="#skills" class="hover:text-sky-400 text-sm font-medium">Skills</a>
-        <a href="#contact" class="hover:text-sky-400 text-sm font-medium">Contact</a>
+        <div class="hidden lg:flex space-x-6">
+            <a href="#home" class="hover:text-sky-400 text-sm font-medium">Home</a>
+            <a href="#about" class="hover:text-sky-400 text-sm font-medium">About</a>
+            <a href="#experience" class="hover:text-sky-400 text-sm font-medium">Experience</a>
+            <a href="#skills" class="hover:text-sky-400 text-sm font-medium">Skills</a>
+            <a href="#contact" class="hover:text-sky-400 text-sm font-medium">Contact</a>
+        </div>
+        
+        <div class="flex items-center gap-1.5"> 
+            <button onclick="toggleChat()" class="ai-pill">
+                <span class="vivo-ai-logo"></span> AI Chat
+            </button>
+            <button class="lg:hidden text-white p-1" id="mobileMenuBtn">
+                <i class="fas fa-ellipsis-v text-lg"></i>
+            </button>
+        </div>
+
+        <div class="mobile-nav hidden absolute top-16 left-0 w-full bg-[#0f172a] border-b border-sky-500/20 flex-col p-4 space-y-2 z-40" id="mobileNav">
+            <a href="#home" class="hover:text-sky-400 py-2"><i class="fas fa-home mr-3"></i>Home</a>
+            <a href="#about" class="hover:text-sky-400 py-2"><i class="fas fa-user-tie mr-3"></i>About</a>
+            <a href="#experience" class="hover:text-sky-400 py-2"><i class="fas fa-briefcase mr-3"></i>Experience</a>
+            <a href="#contact" class="hover:text-sky-400 py-2"><i class="fas fa-envelope mr-3"></i>Contact</a>
+        </div>
+    </nav>
+
+    <div id="welcome-bubble" class="welcome-bubble">
+        Hi! I'm Alif's AI. Want to see his projects? ✨
     </div>
-    
-    <div class="flex items-center gap-1.5"> <button onclick="toggleChat()" class="ai-pill">
-    <span class="vivo-ai-logo"></span>
-    AI Chat
-</button>
-        <button class="lg:hidden text-white p-1" id="mobileMenuBtn">
-            <i class="fas fa-ellipsis-v text-lg"></i>
-        </button>
-    </div>
-
-    <div class="mobile-nav hidden absolute top-16 left-0 w-full bg-[#0f172a] border-b border-sky-500/20 flex-col p-4 space-y-2 z-40" id="mobileNav">
-        <a href="#home" class="hover:text-sky-400 py-2"><i class="fas fa-home mr-3"></i>Home</a>
-        <a href="#about" class="hover:text-sky-400 py-2"><i class="fas fa-user-tie mr-3"></i>About</a>
-        <a href="#experience" class="hover:text-sky-400 py-2"><i class="fas fa-briefcase mr-3"></i>Experience</a>
-        <a href="#contact" class="hover:text-sky-400 py-2"><i class="fas fa-envelope mr-3"></i>Contact</a>
-    </div>
-</nav>
-
-<div id="welcome-bubble" class="welcome-bubble">Hi! Need help? ✨</div>
-
-
-<div id="welcome-bubble" class="welcome-bubble">
-    Hi! I'm Alif's AI. Want to see his projects? ✨
-</div>
 
     <section id="home" class="min-h-screen gradient-bg flex flex-col justify-center items-center text-center px-6 pt-20 parallax-section">
         <div class="mb-8 p-2 rounded-full bg-gradient-to-r from-sky-500 to-blue-500 animate-pulse profile-photo-container floating">
@@ -130,84 +136,6 @@
         </div>
     </section>
 
-    <section id="experience" class="py-16 md:py-20 bg-[#1e293b]/30 px-4 section">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-3xl font-bold text-white mb-12">Professional Experience</h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="glass-card p-6 rounded-2xl">
-                    <i class="fas fa-user-tie text-2xl text-sky-400 mb-4"></i>
-                    <h3 class="font-bold text-white">Sales Manager</h3>
-                    <p class="text-slate-400 text-sm">Zero Zone Electronics</p>
-                </div>
-                <div class="glass-card p-6 rounded-2xl">
-                    <i class="fas fa-chart-line text-2xl text-blue-400 mb-4"></i>
-                    <h3 class="font-bold text-white">Marketing Officer</h3>
-                    <p class="text-slate-400 text-sm">Best Electronics</p>
-                </div>
-                <div class="glass-card p-6 rounded-2xl">
-                    <i class="fas fa-clipboard-check text-2xl text-green-400 mb-4"></i>
-                    <h3 class="font-bold text-white">Assistant Supervisor</h3>
-                    <p class="text-slate-400 text-sm">Decent Electro LTD</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="education" class="py-16 md:py-20 bg-[#1e293b]/30 px-4 section">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-12">Academic Records</h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="glass-card p-6 rounded-2xl text-center">
-                    <i class="fas fa-university text-2xl text-sky-400 mb-4"></i>
-                    <h4 class="font-bold text-white">B.S.S. (Honours)</h4>
-                    <p class="text-sm">Currently Pursuing</p>
-                </div>
-                <div class="glass-card p-6 rounded-2xl text-center">
-                    <i class="fas fa-graduation-cap text-2xl text-green-400 mb-4"></i>
-                    <h4 class="font-bold text-white">H.S.C</h4>
-                    <p class="text-sm">Passing Year: 2022</p>
-                </div>
-                <div class="glass-card p-6 rounded-2xl text-center">
-                    <i class="fas fa-school text-2xl text-purple-400 mb-4"></i>
-                    <h4 class="font-bold text-white">S.S.C</h4>
-                    <p class="text-sm">Passing Year: 2020</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="personal" class="py-16 md:py-20 px-4 section">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-8 flex items-center">
-                <i class="fas fa-user-circle mr-3"></i> Personal Details
-            </h2>
-            <div class="glass-card p-8 rounded-2xl grid md:grid-cols-2 gap-8">
-                <div class="space-y-4">
-                    <p><span class="font-bold text-sky-400">Father:</span> Saiful Islam</p>
-                    <p><span class="font-bold text-sky-400">Mother:</span> Shirena Begum</p>
-                    <p><span class="font-bold text-sky-400">Blood Group:</span> A+</p>
-                </div>
-                <div class="space-y-4">
-                    <p><span class="font-bold text-green-400">Height:</span> 5'10"</p>
-                    <p><span class="font-bold text-green-400">Religion:</span> Islam</p>
-                    <p><span class="font-bold text-green-400">Nationality:</span> Bangladeshi</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-16 md:py-20 px-4 section">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-3xl font-bold text-white mb-12">Contact Me</h2>
-            <div class="glass-card p-8 rounded-2xl inline-block">
-                <p class="text-xl mb-6">Let's work together!</p>
-                <button id="contactEmailBtn" class="bg-sky-600 hover:bg-sky-700 text-white px-8 py-3 rounded-lg font-bold">
-                    Send Email
-                </button>
-            </div>
-        </div>
-    </section>
-
     <footer class="py-8 glass-card border-t border-sky-500/20 text-center">
         <p class="text-white font-bold">&copy; 2024 Shahadat Islam Alif</p>
     </footer>
@@ -232,12 +160,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
