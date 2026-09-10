@@ -14,6 +14,7 @@
     <div class="scroll-progress" id="scrollProgress"></div>
     <div class="loading-bar" id="loadingBar"></div>
 
+    <!-- Navigation -->
     <nav class="sticky top-0 z-50 glass-card h-16 px-4 md:px-8 flex items-center justify-between">
         <a href="#home" class="text-xl font-bold text-white transition-all duration-300 transform hover:scale-105">Shahadat<span class="text-gradient-animate">Alif</span></a>
         <div class="hidden lg:flex space-x-6">
@@ -28,6 +29,7 @@
             <button onclick="toggleChat()" class="ai-pill"><span class="vivo-ai-logo"></span> AI Chat</button>
         </div>
         
+        <!-- Mobile Nav -->
         <div class="mobile-nav hidden absolute top-16 left-0 w-full bg-[#0f172a] border-b border-sky-500/20 flex-col p-4 space-y-2 z-40" id="mobileNav">
             <a href="#home" class="hover:text-sky-400 py-2"><i class="fas fa-home mr-3"></i>Home</a>
             <a href="#about" class="hover:text-sky-400 py-2"><i class="fas fa-user-tie mr-3"></i>About</a>
@@ -40,112 +42,112 @@
 
     <div id="welcome-bubble" class="welcome-bubble">Hi! I'm Alif's AI. Want to see his projects? ✨</div>
 
+    <!-- Hero Section -->
     <section id="home" class="min-h-screen gradient-bg flex flex-col justify-center items-center text-center px-6 pt-20 parallax-section">
         <div class="mb-8 p-2 rounded-full bg-gradient-to-r from-sky-500 to-blue-500 animate-pulse profile-photo-container floating">
+            <!-- Ensure MY-photo.jpg is saved locally in your repo if this i.ibb link ever breaks -->
             <img src="https://i.ibb.co.com/H0J2rv0/MY-photo.jpg" alt="Shahadat Islam Alif" class="w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full border-4 border-[#0f172a] object-cover shadow-2xl" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
         </div>
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 slide-in-up">Shahadat Islam <span class="text-gradient-animate">Alif</span></h1>
-        <div class="inline-flex flex-wrap justify-center gap-3 mb-6">
+        
+        <div class="inline-flex flex-wrap justify-center gap-3 mb-4">
             <span class="badge-blue text-white px-4 py-2 rounded-full text-sm font-medium"><i class="fas fa-search mr-2"></i>Content Researcher</span>
             <span class="badge-green text-white px-4 py-2 rounded-full text-sm font-medium"><i class="fas fa-language mr-2"></i>Language Influencer</span>
             <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-medium"><i class="fas fa-chart-line mr-2"></i>Sales & Marketing Expert</span>
         </div>
+
+        <!-- NEW: Social Links added here -->
+        <div class="flex gap-4 mb-6 slide-in-up">
+            <a href="https://www.facebook.com/shahadat8224" target="_blank" class="text-blue-500 hover:text-blue-400 text-2xl transition-colors"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/shahadat_islam_alif" target="_blank" class="text-pink-500 hover:text-pink-400 text-2xl transition-colors"><i class="fab fa-instagram"></i></a>
+        </div>
+
         <p class="text-xl md:text-2xl text-slate-300 font-light mb-6 max-w-3xl leading-relaxed slide-in-up">Bridging digital marketing with multilingual communication to create impactful campaigns and build meaningful connections across cultures.</p>
+        
         <div class="flex flex-col sm:flex-row gap-4 slide-in-up">
             <button id="emailBtn" class="bg-gradient-to-r from-sky-600 to-blue-500 hover:from-sky-700 hover:to-blue-600 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 shadow-xl flex items-center justify-center btn-hover transform hover:scale-105"><i class="fas fa-envelope mr-2"></i> Get In Touch</button>
             <a href="tel:+8801320828224" class="glass-card hover:bg-slate-800/80 border border-sky-500/30 px-8 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center btn-hover transform hover:scale-105"><i class="fas fa-phone mr-2"></i> Call: 01320828224</a>
             <a href="#experience" class="border border-sky-500/50 text-sky-400 hover:bg-sky-500/10 px-8 py-3 rounded-lg font-semibold flex items-center justify-center btn-hover transform hover:scale-105"><i class="fas fa-briefcase mr-2"></i> View Experience</a>
         </div>
+        
         <div class="mt-12 slide-in-up">
             <a href="#about" class="text-slate-400 hover:text-sky-400 transition-colors duration-300 flex flex-col items-center"><span class="mb-2">Scroll to explore</span><i class="fas fa-chevron-down animate-bounce"></i></a>
         </div>
     </section>
 
     <div class="section-divider"></div>
-<!-- Professional Experience Section - Left-Right Zigzag -->
-<section id="experience" class="py-16 md:py-20 bg-[#1e293b]/30 px-4">
-    <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 md:mb-16 flex items-center slide-in-left">
-            <span class="text-gradient-animate mr-3"><i class="fas fa-briefcase"></i></span> Professional Experience
-        </h2>
-        
-        <!-- Timeline Container -->
-        <div class="relative">
-            <!-- Center Timeline Line -->
-            <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-sky-500/50 via-blue-500/50 to-purple-500/50"></div>
+
+    <!-- Professional Experience Section -->
+    <section id="experience" class="py-16 md:py-20 bg-[#1e293b]/30 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 md:mb-16 flex items-center slide-in-left">
+                <span class="text-gradient-animate mr-3"><i class="fas fa-briefcase"></i></span> Professional Experience
+            </h2>
             
-            <!-- Experience 1 - LEFT SIDE -->
-            <div class="relative mb-20 md:flex">
-                <!-- Timeline Dot -->
-                <div class="absolute left-6 md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-sky-500 rounded-full z-10 border-4 border-[#1e293b] shadow-lg shadow-sky-500/50"></div>
+            <div class="relative">
+                <!-- Center Timeline Line -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-sky-500/50 via-blue-500/50 to-purple-500/50"></div>
                 
-                <!-- Card on LEFT -->
-                <div class="md:w-1/2 md:pr-12">
-                    <div class="glass-card p-6 rounded-2xl card-hover">
-                        <div class="flex justify-between items-start mb-3">
-                            <div class="text-sky-400 font-semibold"><i class="fas fa-user-tie mr-2"></i>Sales & Leadership</div>
-                            <span class="text-sm text-slate-500">2022-2023</span>
+                <!-- Experience 1 -->
+                <div class="relative mb-20 md:flex">
+                    <div class="absolute left-6 md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-sky-500 rounded-full z-10 border-4 border-[#1e293b] shadow-lg shadow-sky-500/50"></div>
+                    <div class="md:w-1/2 md:pr-12 pl-12 md:pl-0">
+                        <div class="glass-card p-6 rounded-2xl card-hover">
+                            <div class="flex justify-between items-start mb-3">
+                                <div class="text-sky-400 font-semibold"><i class="fas fa-user-tie mr-2"></i>Sales & Leadership</div>
+                                <span class="text-sm text-slate-500">2022-2023</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Sales Manager</h3>
+                            <p class="text-slate-400 mb-2">Zero Zone Electronics, Gazipur</p>
+                            <p class="text-slate-300 leading-relaxed text-sm mb-3">Led sales operations, managed customer relationships, and developed strategies to increase market share in the competitive electronics retail sector.</p>
+                            <div class="text-xs text-slate-500"><i class="fas fa-clock mr-1"></i> 1 Year Experience</div>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Sales Manager</h3>
-                        <p class="text-slate-400 mb-2">Zero Zone Electronics, Gazipur</p>
-                        <p class="text-slate-300 leading-relaxed text-sm mb-3">Led sales operations, managed customer relationships, and developed strategies to increase market share in the competitive electronics retail sector.</p>
-                        <div class="text-xs text-slate-500"><i class="fas fa-clock mr-1"></i> 1 Year Experience</div>
                     </div>
+                    <div class="md:w-1/2"></div>
                 </div>
-                <!-- Empty right side -->
-                <div class="md:w-1/2"></div>
-            </div>
 
-            <!-- Experience 2 - RIGHT SIDE -->
-            <div class="relative mb-20 md:flex md:flex-row-reverse">
-                <!-- Timeline Dot -->
-                <div class="absolute left-6 md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full z-10 border-4 border-[#1e293b] shadow-lg shadow-blue-500/50"></div>
-                
-                <!-- Card on RIGHT -->
-                <div class="md:w-1/2 md:pl-12">
-                    <div class="glass-card p-6 rounded-2xl card-hover">
-                        <div class="flex justify-between items-start mb-3">
-                            <div class="text-blue-400 font-semibold"><i class="fas fa-chart-line mr-2"></i>Digital Marketing</div>
-                            <span class="text-sm text-slate-500">2022</span>
+                <!-- Experience 2 -->
+                <div class="relative mb-20 md:flex md:flex-row-reverse">
+                    <div class="absolute left-6 md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full z-10 border-4 border-[#1e293b] shadow-lg shadow-blue-500/50"></div>
+                    <div class="md:w-1/2 md:pl-12 pl-12 md:pl-12">
+                        <div class="glass-card p-6 rounded-2xl card-hover">
+                            <div class="flex justify-between items-start mb-3">
+                                <div class="text-blue-400 font-semibold"><i class="fas fa-chart-line mr-2"></i>Digital Marketing</div>
+                                <span class="text-sm text-slate-500">2022</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Marketing Officer</h3>
+                            <p class="text-slate-400 mb-2">Best Electronics Online</p>
+                            <p class="text-slate-300 leading-relaxed text-sm mb-3">Developed and implemented online marketing strategies for electronic products, managed social media campaigns, and analyzed digital marketing performance metrics.</p>
+                            <div class="text-xs text-slate-500"><i class="fas fa-clock mr-1"></i> 3 Months Experience</div>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Marketing Officer</h3>
-                        <p class="text-slate-400 mb-2">Best Electronics Online</p>
-                        <p class="text-slate-300 leading-relaxed text-sm mb-3">Developed and implemented online marketing strategies for electronic products, managed social media campaigns, and analyzed digital marketing performance metrics.</p>
-                        <div class="text-xs text-slate-500"><i class="fas fa-clock mr-1"></i> 3 Months Experience</div>
                     </div>
+                    <div class="md:w-1/2"></div>
                 </div>
-                <!-- Empty left side -->
-                <div class="md:w-1/2"></div>
-            </div>
 
-            <!-- Experience 3 - LEFT SIDE -->
-            <div class="relative md:flex">
-                <!-- Timeline Dot -->
-                <div class="absolute left-6 md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full z-10 border-4 border-[#1e293b] shadow-lg shadow-purple-500/50"></div>
-                
-                <!-- Card on LEFT -->
-                <div class="md:w-1/2 md:pr-12">
-                    <div class="glass-card p-6 rounded-2xl card-hover">
-                        <div class="flex justify-between items-start mb-3">
-                            <div class="text-purple-400 font-semibold"><i class="fas fa-clipboard-check mr-2"></i>Supervisory Role</div>
-                            <span class="text-sm text-slate-500">2021</span>
+                <!-- Experience 3 -->
+                <div class="relative md:flex">
+                    <div class="absolute left-6 md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full z-10 border-4 border-[#1e293b] shadow-lg shadow-purple-500/50"></div>
+                    <div class="md:w-1/2 md:pr-12 pl-12 md:pl-0">
+                        <div class="glass-card p-6 rounded-2xl card-hover">
+                            <div class="flex justify-between items-start mb-3">
+                                <div class="text-purple-400 font-semibold"><i class="fas fa-clipboard-check mr-2"></i>Supervisory Role</div>
+                                <span class="text-sm text-slate-500">2021</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Assistant Supervisor</h3>
+                            <p class="text-slate-400 mb-2">Decent Electro LTD</p>
+                            <p class="text-slate-300 leading-relaxed text-sm mb-3">Assisted in supervising operations, coordinating team activities, and ensuring quality standards in electronic manufacturing processes.</p>
+                            <div class="text-xs text-slate-500"><i class="fas fa-clock mr-1"></i> 3 Months Experience</div>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Assistant Supervisor</h3>
-                        <p class="text-slate-400 mb-2">Decent Electro LTD</p>
-                        <p class="text-slate-300 leading-relaxed text-sm mb-3">Assisted in supervising operations, coordinating team activities, and ensuring quality standards in electronic manufacturing processes.</p>
-                        <div class="text-xs text-slate-500"><i class="fas fa-clock mr-1"></i> 3 Months Experience</div>
                     </div>
+                    <div class="md:w-1/2"></div>
                 </div>
-                <!-- Empty right side -->
-                <div class="md:w-1/2"></div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <div class="section-divider"></div>
 
-
+    <!-- Skills Section -->
     <section id="skills" class="py-16 md:py-20 px-4">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 md:mb-12 flex items-center slide-in-left"><span class="text-gradient-animate mr-3"><i class="fas fa-tools"></i></span> Skills & Certifications</h2>
@@ -192,6 +194,7 @@
 
     <div class="section-divider"></div>
 
+    <!-- Education Section -->
     <section id="education" class="py-16 md:py-20 bg-[#1e293b]/30 px-4">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 md:mb-12 flex items-center slide-in-left"><span class="text-gradient-animate mr-3"><i class="fas fa-graduation-cap"></i></span> Education</h2>
@@ -223,6 +226,7 @@
 
     <div class="section-divider"></div>
 
+    <!-- Contact Section -->
     <section id="contact" class="py-16 md:py-20 px-4">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 text-center slide-in-up">Let's Connect</h2>
@@ -245,9 +249,8 @@
                                 <div class="bg-sky-500/20 p-2 rounded-lg mr-3"><i class="fas fa-phone text-sky-400"></i></div>
                                 <div>
                                     <h4 class="font-bold text-white text-sm">Direct Contact</h4>
-                                   <a href="tel:+8801320828224"><i></i> Call: 01320828224</a>
-
-                                    <p class="text-slate-400 text-sm">Email: shahadatislamalif@gmail.com</p>
+                                    <p class="text-slate-400 text-sm mt-1">Phone: <a href="tel:+8801320828224" class="hover:text-sky-400 transition-colors">01320828224</a></p>
+                                    <p class="text-slate-400 text-sm">Email: <a href="mailto:shahadatislamalif@gmail.com" class="hover:text-sky-400 transition-colors">shahadatislamalif@gmail.com</a></p>
                                 </div>
                             </div>
                         </div>
@@ -300,33 +303,33 @@
                             <label for="message" class="block text-slate-400 mb-2 text-sm">Message</label>
                             <textarea id="message" rows="3" class="w-full bg-[#0f172a] border border-sky-500/30 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-sky-500 text-white text-sm" placeholder="Your message here..."></textarea>
                         </div>
-                        <!-- ONLY THIS BUTTON WAS CHANGED -->
-                        <button type="button" id="contactEmailBtn" class="w-full bg-gradient-to-r from-sky-600 to-blue-500 hover:from-sky-700 hover:to-blue-600 text-white font-semibold py-3 rounded-lg transition-all text-sm"><i class="fab fa-whatsapp mr-2"></i> Send via WhatsApp</button>
+                        <button type="button" id="contactEmailBtn" class="w-full bg-gradient-to-r from-sky-600 to-blue-500 hover:from-sky-700 hover:to-blue-600 text-white font-semibold py-3 rounded-lg transition-all text-sm transform hover:scale-105"><i class="fab fa-whatsapp mr-2"></i> Send via WhatsApp</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="py-8 glass-card border-t border-sky-500/20 text-center">
         <p>&copy; <script>document.write(new Date().getFullYear())</script> Shahadat Islam Alif</p>
-
         <p class="text-sm text-slate-400 mt-2">Digital Marketing Specialist | Language Influencer | Sales & Marketing Professional</p>
         <div class="mt-4">
             <p class="text-xs text-sky-400/70"><i class="fas fa-quote-left mr-1"></i>"Seeking dynamic environments where creativity meets strategy for sustained growth and development."</p>
         </div>
     </footer>
 
+    <!-- AI Chat Window -->
     <div id="chat-window" class="fixed bottom-24 right-6 w-[320px] md:w-[380px] h-[450px] bg-[#1e293b] border border-slate-700 rounded-2xl shadow-2xl z-[1000] flex flex-col overflow-hidden" style="display: none;">
         <div class="bg-gradient-to-r from-sky-600 to-purple-600 p-4 flex justify-between items-center">
             <span class="text-white font-bold flex items-center text-sm"><i class="fas fa-robot mr-2"></i> Alif's AI Guide</span>
-            <button onclick="toggleChat()" class="text-white hover:text-red-300"><i class="fas fa-times"></i></button>
+            <button onclick="toggleChat()" class="text-white hover:text-red-300 transition-colors"><i class="fas fa-times"></i></button>
         </div>
         <div id="chat-content" class="flex-1 p-4 overflow-y-auto flex flex-col gap-3 text-sm scrollbar-hide">
             <div class="bg-slate-800 p-3 rounded-tr-xl rounded-br-xl rounded-bl-xl self-start max-w-[85%] text-slate-200">Hi! I'm Alif's AI assistant. Ask me anything about his skills or projects!</div>
         </div>
         <div class="p-3 border-t border-slate-700 bg-slate-900/50 flex gap-2">
-            <input type="text" id="user-input" placeholder="Type your question..." class="flex-1 bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm outline-none focus:border-sky-500">
+            <input type="text" id="user-input" placeholder="Type your question..." class="flex-1 bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm outline-none focus:border-sky-500 transition-colors">
             <button onclick="sendToGemini()" class="bg-sky-600 hover:bg-sky-500 text-white p-2 rounded-lg transition-colors"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
