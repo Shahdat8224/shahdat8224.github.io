@@ -215,44 +215,55 @@ body {
     background: linear-gradient(135deg, #0ea5e9, #3b82f6);
     color: white;
     padding: 10px 14px;
-    border-radius: 18px 18px 0 18px;
+    border-radius: 18px 18px 2px 18px;
     align-self: flex-end;
     max-width: 85%;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
+    word-break: break-word;
+    box-shadow: 0 2px 8px rgba(14, 165, 233, 0.25);
+    line-height: 1.5;
 }
 
 .ai-msg {
-    background: rgba(30, 41, 59, 0.8);
-    color: #e2e8f0;
+    background: rgba(30, 41, 59, 0.9);
+    color: #f1f5f9;
     padding: 10px 14px;
-    border-radius: 18px 18px 18px 0;
+    border-radius: 18px 18px 18px 2px;
     align-self: flex-start;
-    max-width: 85%;
-    margin-bottom: 8px;
+    max-width: 88%;
+    margin-bottom: 4px;
     border: 1px solid rgba(14, 165, 233, 0.2);
+    word-break: break-word;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    line-height: 1.5;
 }
 
 .typing {
     display: flex;
-    gap: 4px;
-    padding: 10px;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 14px;
     align-self: flex-start;
+    background: rgba(30, 41, 59, 0.9);
+    border-radius: 18px 18px 18px 2px;
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    margin-bottom: 4px;
 }
 
 .typing span {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     background: #0ea5e9;
     border-radius: 50%;
-    animation: typing 1.4s infinite;
+    animation: typing 1.4s infinite ease-in-out;
 }
 
 .typing span:nth-child(2) { animation-delay: 0.2s; }
 .typing span:nth-child(3) { animation-delay: 0.4s; }
 
 @keyframes typing {
-    0%, 60%, 100% { transform: translateY(0); }
-    30% { transform: translateY(-10px); }
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-7px); opacity: 1; }
 }
 
 .mobile-nav {
@@ -331,10 +342,6 @@ body {
 
 
 
-/* Hide the floating AI welcome bubble */
-#welcome-bubble {
-    display: none !important;
-}
 
 
 
