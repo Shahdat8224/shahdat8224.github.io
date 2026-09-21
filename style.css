@@ -278,7 +278,9 @@ body {
     #chat-window {
         width: calc(100% - 32px);
         right: 16px;
-        bottom: 84px;
-        height: 420px;
+        top: 72px;
+        bottom: auto;
+        height: 480px;
+        max-height: calc(100vh - 90px);
     }
 }
