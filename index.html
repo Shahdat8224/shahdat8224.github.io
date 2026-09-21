@@ -43,7 +43,6 @@
     <!-- Hero Section -->
     <section id="home" class="min-h-screen gradient-bg flex flex-col justify-center items-center text-center px-6 pt-20 parallax-section">
         <div class="mb-8 p-2 rounded-full bg-gradient-to-r from-sky-500 to-blue-500 animate-pulse profile-photo-container floating">
-            <!-- Ensure MY-photo.jpg is saved locally in your repo if this i.ibb link ever breaks -->
             <img src="https://i.ibb.co.com/H0J2rv0/MY-photo.jpg" alt="Shahadat Islam Alif" class="w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full border-4 border-[#0f172a] object-cover shadow-2xl" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
         </div>
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 slide-in-up">Shahadat Islam <span class="text-gradient-animate">Alif</span></h1>
@@ -83,7 +82,6 @@
             </h2>
 
             <div class="relative">
-                <!-- Center Timeline Line -->
                 <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-sky-500/50 via-blue-500/50 to-purple-500/50"></div>
 
                 <!-- Experience 1 -->
@@ -317,22 +315,15 @@
         </div>
     </footer>
 
-    <!-- AI Chat Window Launcher Floating Button -->
-    <button onclick="toggleChat()" class="fixed bottom-6 right-6 z-[999] bg-gradient-to-r from-sky-600 to-purple-600 text-white p-3.5 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center gap-2 px-5 font-medium text-sm border border-sky-400/30">
-        <span class="status-dot"></span>
-        <i class="fas fa-robot text-lg"></i>
-        <span>AI Guide</span>
-    </button>
-
-    <!-- AI Chat Window -->
-    <div id="chat-window" class="fixed bottom-24 right-6 w-[320px] md:w-[380px] h-[480px] bg-[#1e293b] border border-slate-700 rounded-2xl shadow-2xl z-[1000] flex flex-col overflow-hidden" style="display: none;">
+    <!-- AI Chat Window Dropdown (Positioned cleanly under Top Navigation) -->
+    <div id="chat-window" class="fixed top-20 right-4 md:right-8 w-[320px] md:w-[380px] h-[500px] bg-[#1e293b] border border-slate-700 rounded-2xl shadow-2xl z-[1000] flex flex-col overflow-hidden" style="display: none;">
         <!-- Header -->
         <div class="bg-gradient-to-r from-sky-600 to-purple-600 p-4 flex justify-between items-center shadow-md">
             <div class="flex items-center gap-2">
                 <span class="status-dot"></span>
                 <span class="text-white font-bold flex items-center text-sm"><i class="fas fa-robot mr-2"></i> Alif's AI Guide</span>
             </div>
-            <button onclick="toggleChat()" class="text-white/80 hover:text-white transition-colors text-xl font-bold leading-none" aria-label="Close chat">✕</button>
+            <button onclick="toggleChat()" class="text-white/80 hover:text-white transition-colors text-xl font-bold leading-none cursor-pointer" aria-label="Close chat">✕</button>
         </div>
 
         <!-- Message Feed -->
@@ -353,7 +344,7 @@
         <!-- Input Box -->
         <div class="p-3 border-t border-slate-700 bg-slate-900/50 flex gap-2">
             <input type="text" id="user-input" placeholder="Type your question..." class="flex-1 bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm outline-none focus:border-sky-500 transition-colors">
-            <button onclick="sendToGemini()" class="bg-sky-600 hover:bg-sky-500 text-white p-2 rounded-lg transition-colors flex items-center justify-center w-10"><i class="fas fa-paper-plane"></i></button>
+            <button onclick="sendToGemini()" class="bg-sky-600 hover:bg-sky-500 text-white p-2 rounded-lg transition-colors flex items-center justify-center w-10 cursor-pointer"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 </body>
