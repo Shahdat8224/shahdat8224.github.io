@@ -16,19 +16,29 @@ export default async function handler(req, res) {
     const apiKey = process.env.GEMINI_API_KEY;
 
     if (!apiKey) {
-        return res.status(500).json({ error: 'GEMINI_API_KEY not configured.' });
+        return res.status(500).json({ error: 'GEMINI_API_KEY not configured in Vercel environment variables.' });
     }
 
     try {
-        const { message } = req.body || {};
+        // Safe body parsing
+        let body = req.body;
+        if (typeof body === 'string') {
+            try {
+                body = JSON.parse(body);
+            } catch (e) {
+                return res.status(400).json({ error: 'Invalid JSON body.' });
+            }
+        }
 
-        if (!message) {
+        const message = body?.message;
+
+        if (!message || typeof message !== 'string' || !message.trim()) {
             return res.status(400).json({ error: 'No message provided.' });
         }
 
         const systemInstructionText = `
 You are the AI Assistant for Shahadat Islam Alif's portfolio website. Answer questions based on Alif's profile below, or answer general questions helpfully like Gemini.
-Keep all answers concise and under 3-4 sentences so they fit nicely in a chat widget.
+Keep all answers concise and under 3-4 sentences so they fit nicely in a compact chat widget.
 
 Profile Details:
 - Name: Shahadat Islam Alif, based in Gazipur, Bangladesh.
@@ -42,7 +52,9 @@ Profile Details:
 - Contact: Email: shahadatislamalif@gmail.com | Phone: 01320828224.
 `.trim();
 
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+        const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+
+        const response = await fetch(geminiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -52,21 +64,32 @@ Profile Details:
                     parts: [{ text: systemInstructionText }]
                 },
                 contents: [{
-                    parts: [{ text: message }]
+                    parts: [{ text: message.trim() }]
                 }]
             })
         });
 
         const data = await response.json();
 
-        if (data.error) {
-            return res.status(500).json({ error: data.error.message || 'Gemini API Error' });
+        if (!response.ok || data.error) {
+            console.error('Gemini API upstream error:', data.error);
+            return res.status(response.status || 500).json({ 
+                error: data.error?.message || 'Gemini API call failed.' 
+            });
         }
 
-        const aiReply = data.candidates?.[0]?.content?.parts?.[0]?.text || "I'm sorry, I couldn't generate a response.";
+        const aiReply = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+        if (!aiReply) {
+            return res.status(200).json({ 
+                reply: "I'm sorry, I couldn't generate a response. Please feel free to reach out to Alif directly via shahadatislamalif@gmail.com." 
+            });
+        }
+
         return res.status(200).json({ reply: aiReply });
 
     } catch (error) {
+        console.error('Server error in api/chat.js:', error);
         return res.status(500).json({ error: 'Server Error: ' + error.message });
     }
 }
