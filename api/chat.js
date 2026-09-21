@@ -1,9 +1,14 @@
 export default async function handler(req, res) {
-    // Set CORS headers
+    // Permissive CORS headers for cross-origin requests (GitHub Pages -> Vercel)
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+    res.setHeader(
+        'Access-Control-Allow-Headers',
+        'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+    );
 
+    // Handle OPTIONS preflight requests immediately
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
@@ -50,7 +55,7 @@ Profile Details:
 - Contact: Email: shahadatislamalif@gmail.com | Phone: 01320828224.
 `.trim();
 
-        // Exact model recommended by Google Gemini API
+        // Target active Gemini model
         const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${apiKey}`;
 
         const response = await fetch(geminiUrl, {
