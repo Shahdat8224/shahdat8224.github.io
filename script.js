@@ -8,6 +8,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     const emailAddress = 'shahadatislamalif@gmail.com';
 
+    // Add click listeners to AI Chat buttons
+    const floatingAiBtn = document.getElementById('floating-ai-btn');
+    const closeChatBtn = document.getElementById('close-chat-btn');
+    const navAiBtn = document.getElementById('nav-ai-btn');
+
+    if (floatingAiBtn) {
+        floatingAiBtn.addEventListener('click', window.toggleChat);
+    }
+    if (closeChatBtn) {
+        closeChatBtn.addEventListener('click', window.toggleChat);
+    }
+    if (navAiBtn) {
+        navAiBtn.addEventListener('click', window.toggleChat);
+    }
+
     if (loadingBar) {
         window.addEventListener('load', () => {
             setTimeout(() => { loadingBar.style.opacity = '0'; }, 500);
@@ -179,10 +194,12 @@ window.sendToGemini = async function() {
         if (response.ok && data.reply) {
             aiMsgDiv.textContent = data.reply;
         } else {
+            console.error('API Response Error:', data);
             aiMsgDiv.textContent = "I'm having trouble connecting right now. You can reach Alif directly via Email: shahadatislamalif@gmail.com or Phone: 01320828224.";
         }
         content.appendChild(aiMsgDiv);
     } catch (error) {
+        console.error('Fetch Error:', error);
         document.getElementById('typing-indicator')?.remove();
         const aiMsgDiv = document.createElement('div');
         aiMsgDiv.className = 'ai-msg';
