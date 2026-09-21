@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     const skillsSection = document.getElementById('skills');
-    if(skillsSection) observer.observe(skillsSection);
+    if (skillsSection) observer.observe(skillsSection);
 });
 
 window.revealReference = function(num) {
@@ -118,7 +118,10 @@ window.revealReference = function(num) {
 };
 
 // AI Chat Integration Logic
-const API_URL = 'https://shahdat8224.vercel.app/api/chat';
+// Use relative path when hosted on Vercel; call production Vercel backend when on GitHub Pages
+const API_URL = window.location.hostname.includes('vercel.app') 
+    ? '/api/chat' 
+    : 'https://shahdat8224.vercel.app/api/chat';
 
 window.toggleChat = function() {
     const chat = document.getElementById('chat-window');
@@ -147,19 +150,19 @@ window.sendToGemini = async function() {
 
     const userMessage = input.value.trim();
 
-    // Create user message element
+    // Append user message bubble
     const userMsgDiv = document.createElement('div');
-    userMsgDiv.className = 'user-msg';
+    userMsgDiv.className = 'user-msg bg-sky-600/30 border border-sky-500/40 p-3 rounded-tl-xl rounded-tr-xl rounded-bl-xl self-end max-w-[85%] text-slate-100 text-sm';
     userMsgDiv.textContent = userMessage;
     content.appendChild(userMsgDiv);
 
     input.value = '';
 
-    // Create typing indicator
+    // Append animated typing indicator
     const typingDiv = document.createElement('div');
-    typingDiv.className = 'typing';
+    typingDiv.className = 'typing bg-slate-800 p-3 rounded-tr-xl rounded-br-xl rounded-bl-xl self-start max-w-[85%] text-slate-400 border border-slate-700/50 flex items-center gap-1.5';
     typingDiv.id = 'typing-indicator';
-    typingDiv.innerHTML = '<span></span><span></span><span></span>';
+    typingDiv.innerHTML = '<span class="w-2 h-2 bg-sky-400 rounded-full animate-bounce"></span><span class="w-2 h-2 bg-sky-400 rounded-full animate-bounce [animation-delay:0.2s]"></span><span class="w-2 h-2 bg-sky-400 rounded-full animate-bounce [animation-delay:0.4s]"></span>';
     content.appendChild(typingDiv);
     content.scrollTop = content.scrollHeight;
 
@@ -174,7 +177,7 @@ window.sendToGemini = async function() {
         document.getElementById('typing-indicator')?.remove();
         
         const aiMsgDiv = document.createElement('div');
-        aiMsgDiv.className = 'ai-msg';
+        aiMsgDiv.className = 'ai-msg bg-slate-800 p-3 rounded-tr-xl rounded-br-xl rounded-bl-xl self-start max-w-[85%] text-slate-200 border border-slate-700/50 text-sm leading-relaxed';
 
         if (response.ok && data.reply) {
             aiMsgDiv.textContent = data.reply;
@@ -183,10 +186,11 @@ window.sendToGemini = async function() {
         }
         content.appendChild(aiMsgDiv);
     } catch (error) {
+        console.error('Chat fetch error:', error);
         document.getElementById('typing-indicator')?.remove();
         const aiMsgDiv = document.createElement('div');
-        aiMsgDiv.className = 'ai-msg';
-        aiMsgDiv.textContent = "Connection issue encountered. Please feel free to contact Alif directly at shahadatislamalif@gmail.com or phone: 01320828224.";
+        aiMsgDiv.className = 'ai-msg bg-slate-800 p-3 rounded-tr-xl rounded-br-xl rounded-bl-xl self-start max-w-[85%] text-slate-200 border border-slate-700/50 text-sm leading-relaxed';
+        aiMsgDiv.textContent = "I'm having trouble connecting right now. You can reach Alif directly via Email: shahadatislamalif@gmail.com or Phone: 01320828224.";
         content.appendChild(aiMsgDiv);
     }
     content.scrollTop = content.scrollHeight;
