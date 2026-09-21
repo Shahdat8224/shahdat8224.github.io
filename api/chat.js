@@ -4,7 +4,6 @@ export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-    // Handle OPTIONS preflight requests
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
@@ -20,7 +19,6 @@ export default async function handler(req, res) {
     }
 
     try {
-        // Safe body parsing
         let body = req.body;
         if (typeof body === 'string') {
             try {
@@ -52,7 +50,8 @@ Profile Details:
 - Contact: Email: shahadatislamalif@gmail.com | Phone: 01320828224.
 `.trim();
 
-        const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+        // Target active stable model (gemini-2.5-flash)
+        const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
 
         const response = await fetch(geminiUrl, {
             method: 'POST',
